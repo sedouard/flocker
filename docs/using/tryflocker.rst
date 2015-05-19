@@ -4,7 +4,7 @@
 Try Flocker
 ===========
 
-In this tutorial (30 mins)
+In this tutorial (30 minutes)
 --------------------------
 
 You will use Flocker to migrate a Docker container with its volume from one host to another. The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts. 
@@ -143,10 +143,9 @@ First, download the sample Python web application and Redis server that we have 
 	you@laptop:~$ git clone https://github.com/clusterhq/flocker-quickstart
 	you@laptop:~$ cd flocker-quickstart
 
-.. note:: You will find 3 .yml files in the downloaded tutorial folder. These contain the application and deployment config. You can edit these files if you need to change the IP addresses to match your hosts'
+.. note:: You will find 3 .yml files in the downloaded tutorial folder. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'
 
-Secondly, install the web application\
- and server on the first host:
+Secondly, install the web application and server on the first host:
 
 .. code-block:: console
 
@@ -168,8 +167,8 @@ Visit http://172.16.255.251/ (or the IP of the second host that you are using). 
    
    If you are running on AWS, manually SSH onto the first node and run :code:`docker ps` to see the same output.
 
-Step 4: Migrating a container to the second host.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 4: Migrating a container to the second host
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The diagram below illustrates your current setup:
 

@@ -15,7 +15,7 @@ Contents:
    :maxdepth: 2
 
    introduction
-   gettingstarted/index
+   using/tryflocker
    indepth/index
    advanced/index
    gettinginvolved/index
