@@ -60,29 +60,29 @@ The Flocker client runs locally on your machine and controls the two Flocker nod
 
 OS X
 ****
-.. code-block:: console
+.. version-code-block:: console
 
 	you@laptop:~$ brew update && \
 	  brew tap clusterhq/flocker && \
-	  brew install flocker-0.5.0
+	  brew install flocker-|latest-installable|
 
 Ubuntu 14.04/Debian
 *******************
-.. code-block:: console
+.. version-code-block:: console
 
 	you@laptop:~$ sudo apt-get update && sudo apt-get install -y gcc python2.7 	python-virtualenv python2.7-dev && \
 	  virtualenv flocker-tutorial && \
 	  flocker-tutorial/bin/pip install --upgrade pip && \
-	  flocker-tutorial/bin/pip install --quiet https://storage.googleapis.com/archive.clusterhq.com/downloads/flocker/Flocker-0.4.0-py2-none-any.whl && source flocker-tutorial/bin/activate
+	  flocker-tutorial/bin/pip install --quiet https://storage.googleapis.com/archive.clusterhq.com/downloads/flocker/Flocker-|latest-installable|-py2-none-any.whl && source flocker-tutorial/bin/activate
 
 Fedora 20
 *********
-.. code-block:: console
+.. version-code-block:: console
 
 	you@laptop:~$ sudo yum install -y @buildsys-build python python-devel 	python-virtualenv && \
 	  virtualenv flocker-tutorial && \
 	  flocker-tutorial/bin/pip install --upgrade pip && \
-	  flocker-tutorial/bin/pip install --quiet https://storage.googleapis.com/archive.clusterhq.com/downloads/flocker/Flocker-0.4.0-py2-none-any.whl && source flocker-tutorial/bin/activate
+	  flocker-tutorial/bin/pip install --quiet https://storage.googleapis.com/archive.clusterhq.com/downloads/flocker/Flocker-|latest-installable|-py2-none-any.whl && source flocker-tutorial/bin/activate
 
 .. note:: To test your installation, run the following to check that you have the Flocker client installed correctly:
 
@@ -90,7 +90,7 @@ Fedora 20
  
 	you@laptop:~$ flocker-deploy --version
    
-   Successful installation will display the latest version of Flocker.
+   Successful installation will display the version of Flocker.
 
 Step 2: Installing the Flocker node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -116,7 +116,7 @@ In Step 1 you installed the Flocker client on your local machine. You now need t
  
 	you@laptop:~$ vagrant ssh node1 -c "flocker-reportstate --version" 
 
-   Successful installation will display the latest version of Flocker, and confirm the closure of the connection:
+   Successful installation will display the version of Flocker, and confirm the closure of the connection:
 
    .. code-block:: console
 
@@ -179,7 +179,7 @@ To move the container with the Redis server along with its data volume, run floc
 
 .. code-block:: console
 
-	you@laptop:~$ flocker-deploy deployment-node2.yml
+	you@laptop:~$ flocker-deploy deployment-node2.yml fig.yml
 	
 The Redis container and its volume have now both been moved to the second host. Flocker has maintained its link to the web application on the first host.
 
