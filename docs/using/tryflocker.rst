@@ -11,12 +11,14 @@ You will use Flocker to migrate a Docker container with its data volume from one
 
 To begin the tutorial you will first install the Flocker client on your local machine, then install the Flocker node application onto two hosts. You will then be ready to use Flocker to migrate a Docker container with a volume attached from one host to the other.
 
+.. note:: This tutorial takes roughly 30 minutes, but because there are a few things to download, times might vary depending on the speed of your connection.
+
 You will need
 -------------
 
 1)	Somewhere to install the Flocker client. Make sure you have **one** of the following on your machine:
 
-	- OS X with Homebrew installed.
+	- OS X with `Homebrew <http://www.brew.sh/>`_ installed.
 	- Fedora 20.
 	- Ubuntu 14.04.
 
@@ -60,26 +62,14 @@ The Flocker client runs locally on your machine and controls the two Flocker nod
 
 OS X
 ****
-.. version-code-block:: console
+.. task:: test_homebrew flocker-|latest-installable|
+   :prompt: you@laptop:~$
 
-	you@laptop:~$ brew update && \
-	  brew tap clusterhq/flocker && \
-	  brew install flocker-|latest-installable|
-
-Ubuntu 14.04/Debian
-*******************
+Ubuntu 14.04
+************
 .. version-code-block:: console
 
 	you@laptop:~$ sudo apt-get update && sudo apt-get install -y gcc python2.7 	python-virtualenv python2.7-dev && \
-	  virtualenv flocker-tutorial && \
-	  flocker-tutorial/bin/pip install --upgrade pip && \
-	  flocker-tutorial/bin/pip install --quiet https://storage.googleapis.com/archive.clusterhq.com/downloads/flocker/Flocker-|latest-installable|-py2-none-any.whl && source flocker-tutorial/bin/activate
-
-Fedora 20
-*********
-.. version-code-block:: console
-
-	you@laptop:~$ sudo yum install -y @buildsys-build python python-devel 	python-virtualenv && \
 	  virtualenv flocker-tutorial && \
 	  flocker-tutorial/bin/pip install --upgrade pip && \
 	  flocker-tutorial/bin/pip install --quiet https://storage.googleapis.com/archive.clusterhq.com/downloads/flocker/Flocker-|latest-installable|-py2-none-any.whl && source flocker-tutorial/bin/activate
