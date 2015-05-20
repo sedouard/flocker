@@ -5,7 +5,7 @@ Try Flocker
 ===========
 
 In this tutorial (30 minutes)
---------------------------
+-----------------------------
 
 You will use Flocker to migrate a Docker container with its volume from one host to another. The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts. 
 
