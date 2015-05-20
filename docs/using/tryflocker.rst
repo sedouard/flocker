@@ -7,7 +7,7 @@ Try Flocker
 In this tutorial (30 minutes)
 -----------------------------
 
-You will use Flocker to migrate a Docker container with its volume from one host to another. The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts. 
+You will use Flocker to migrate a Docker container with its data volume from one host to another. The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts.
 
 To begin the tutorial you will first install the Flocker client on your local machine, then install the Flocker node application onto two hosts. You will then be ready to use Flocker to migrate a Docker container with a volume attached from one host to the other.
 
@@ -16,7 +16,7 @@ You will need
 
 1)	Somewhere to install the Flocker client. Make sure you have **one** of the following on your machine:
 
-	- OSX with Homebrew installed.
+	- OS X with Homebrew installed.
 	- Fedora 20.
 	- Ubuntu 14.04.
 
@@ -58,8 +58,8 @@ Step 1: Installing the Flocker client
 
 The Flocker client runs locally on your machine and controls the two Flocker nodes on the hosts. To install the Flocker client, run the following in your terminal:
 
-OSX
-***
+OS X
+****
 .. code-block:: console
 
 	you@laptop:~$ brew update && \
@@ -136,14 +136,14 @@ Step 3: Deploying an app on the first host
 
 You will now have the Flocker client installed on your local machine and two instances of the Flocker node, each on a different host. Now you will create two Docker containers on one of the hosts. One is a web application and the other is redis database application, which stores its data on a volume.
 
-First, download the sample Python web application and Redis server that we have provided on GitHub.:
+First, download the sample Python web application and Redis server that we have provided on GitHub:
 
 .. code-block:: console
 
 	you@laptop:~$ git clone https://github.com/clusterhq/flocker-quickstart
 	you@laptop:~$ cd flocker-quickstart
 
-.. note:: You will find 3 .yml files in the downloaded tutorial folder. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'
+.. note:: You will find 3 .yml files in the downloaded tutorial folder. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'.
 
 Secondly, install the web application and server on the first host:
 
