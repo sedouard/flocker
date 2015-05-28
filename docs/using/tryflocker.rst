@@ -9,7 +9,7 @@ In this tutorial (30 minutes)
 
 You will use Flocker to migrate a Docker container with its data volume from one host to another. The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts.
 
-To begin the tutorial you will first install the Flocker client on your local machine, then install the Flocker node application onto two hosts. You will then be ready to use Flocker to migrate a Docker container with a volume attached from one host to the other.
+To begin the tutorial you will first install the Flocker client on your local machine, then install Flocker onto two hosts. You will then be ready to use Flocker to migrate a Docker container with a volume attached from one host to the other.
 
 .. note:: This tutorial takes roughly 30 minutes, but because there are a few things to download, times might vary depending on the speed of your connection.
 
@@ -21,7 +21,7 @@ You will need
 	- OS X with `Homebrew <http://www.brew.sh/>`_ installed.
 	- Ubuntu 14.04.
 
-2) 	Two hosts for the two instances of Flocker node. The options are:
+2) 	Two hosts for two instances of Flocker. The options are:
 
 	- Two Virtual Machines (VMs) on your local machine. For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
 	- AWS or Rackspace (you will need an account with root access).
@@ -57,7 +57,7 @@ Flocker manages the data migration and the link between the two containers.
 Step 1: Installing the Flocker client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Flocker client runs locally on your machine and controls the two Flocker nodes on the hosts. To install the Flocker client, run the following in your terminal:
+The Flocker client runs locally on your machine, and will control the two instances of Flocker located on the hosts. To install the Flocker client, run the following in your terminal:
 
 OS X
 ****
@@ -77,14 +77,14 @@ To test your installation, run the following to check that you have the Flocker 
    
 Successful installation will display the version of Flocker.
 
-Step 2: Installing the Flocker node
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Option A: Installing the Flocker node on local VMs
-**************************************************
+Step 2: Installing Flocker on your hosts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Option A: Installing Flocker on local VMs
+*****************************************
 
-.. note:: You must have Vagrant and VirtualBox installed to create the VMs and start the containers for this tutorial.
+.. note:: You must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_  installed to create the VMs and start the containers for this tutorial.
 
-In Step 1 you installed the Flocker client on your local machine. You now need two instances of the Flocker node, each on a separate host. The Flocker node manages the links, ports, and volumes associated with Docker containers and can move them around after deployment. To install the Flocker node (plus dependencies), run the following commands and Vagrant will create the environments you need: 
+In Step 1 you installed the Flocker client on your local machine. For the next step in this tutorial you now need two instances of Flocker, each on a separate host. Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment. To install Flocker (plus dependencies) on the hosts, run the following commands and Vagrant will create the environments you need: 
 
 .. code-block:: console
 
@@ -95,23 +95,18 @@ In Step 1 you installed the Flocker client on your local machine. You now need t
 	  [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
 	  ssh-add ~/.vagrant.d/insecure_private_key
 
-.. note:: To test your installation, run the following to check that you have the Flocker client installed correctly:
+To test your installation, run the following to check that you have the Flocker client installed correctly:
 
-   .. code-block:: console
+.. code-block:: console
  
 	you@laptop:~$ vagrant ssh node1 -c "flocker-reportstate --version" 
 
-   Successful installation will display the version of Flocker, and confirm the closure of the connection:
+Successful installation will display the version of Flocker, and confirm the closure of the connection.
 
-   .. code-block:: console
+Option B: Installing Flocker on AWS or Rackspace
+************************************************
 
-	0.4.0
-	Connection to 127.0.0.1 closed.
-
-Option B: Installing the Flocker node on AWS or Rackspace
-*************************************************************************
-
-The two instances of the Flocker node each run on a separate host. The Flocker node manages the links, ports, and volumes associated with Docker containers and can move them around after deployment. To install the Flocker node (plus dependencies), follow the links to the direct instructions:
+The two instances of Flocker each run on a separate host. Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment. To install Flocker (plus dependencies), follow the links to the direct instructions:
 
 - :ref:`AWS install instructions <aws-install>`
 - :ref:`Rackspace install instructions <rackspace-install>`
@@ -119,7 +114,7 @@ The two instances of the Flocker node each run on a separate host. The Flocker n
 Step 3: Deploying an app on the first host
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You will now have the Flocker client installed on your local machine and two instances of the Flocker node, each on a different host. Now you will create two Docker containers on one of the hosts. One is a web application and the other is redis database application, which stores its data on a volume.
+You will now have the Flocker client installed on your local machine and two instances of Flocker, each on a different host. Now you will create two Docker containers on one of the hosts. One is a Python web application and the other is Redis server, which stores its data on a volume.
 
 First, download the sample Python web application and Redis server that we have provided on GitHub:
 
@@ -140,17 +135,16 @@ Visit http://172.16.255.250/ (or the IP of the first host that you are using). Y
 
 Visit http://172.16.255.251/ (or the IP of the second host that you are using). You will see that the count persists because Flocker routes the traffic from either host named in the deployment file to the one that has the application.
 
-.. note:: Run the following from within the vagrant-flocker folder to check that the Redis container is running on the first host:
+Run the following from within the vagrant-flocker folder to check that the Redis container is running on the first host:
 
    .. code-block:: console
    
 	 you@laptop:~$ cd vagrant-flocker
 	 you@laptop:~$ vagrant ssh node1 -c "docker ps" 
      
-
-   You should see the Redis container in the output from Docker.
+You should see the Redis container in the output from Docker.
    
-   If you are running on AWS, manually SSH onto the first node and run :code:`docker ps` to see the same output.
+If you are running on AWS, manually SSH onto the first node and run :code:`docker ps` to see the same output.
 
 Step 4: Migrating a container to the second host
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -172,17 +166,16 @@ Visit http://172.16.255.250/ (or the IP of the first host that you are using). Y
 
 Visit http://172.16.255.251/ (or the IP of the second host that you are using). You will see that the count still persists, even though the container with the volume has moved between hosts.
 
-.. note:: Run the following from within the vagrant-flocker folder to check that the Redis container is running on the first host:
+Run the following from within the vagrant-flocker folder to check that the Redis container is running on the first host:
 
    .. code-block:: console
    
 	 you@laptop:~$ cd vagrant-flocker
 	 you@laptop:~$ vagrant ssh node2 -c "docker ps" 
      
+You should see the Redis container in the output from Docker.
 
-   You should see the Redis container in the output from Docker.
-   
-   If you are running on AWS, manually SSH onto the second node and run :code:`docker ps` to see the same output.
+If you are running on AWS, manually SSH onto the second node and run :code:`docker ps` to see the same output.
 
 Success!
 ^^^^^^^^
