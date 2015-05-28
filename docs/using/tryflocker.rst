@@ -66,18 +66,16 @@ OS X
 
 Ubuntu 14.04
 ************
-.. version-code-block:: console
-
 .. task:: install_cli ubuntu-14.04
    :prompt: you@laptop:~$
 
-.. note:: To test your installation, run the following to check that you have the Flocker client installed correctly:
+To test your installation, run the following to check that you have the Flocker client installed correctly:
 
-   .. code-block:: console
- 
-	you@laptop:~$ flocker-deploy --version
+.. code-block:: console
+
+   you@laptop:~$ flocker-deploy --version
    
-   Successful installation will display the version of Flocker.
+Successful installation will display the version of Flocker.
 
 Step 2: Installing the Flocker node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
