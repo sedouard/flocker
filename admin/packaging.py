@@ -61,6 +61,7 @@ PACKAGE_ARCHITECTURE = {
     'clusterhq-python-flocker': 'native',
 }
 
+
 def package_filename(package_type, package, architecture, rpm_version):
     package_name_format = PACKAGE_NAME_FORMAT[package_type]
     return package_name_format.format(
@@ -198,8 +199,8 @@ class Dependency(object):
             raise ValueError("Unknown package type.")
 
 
-# The minimum required versions of Docker and ZFS. The package names vary
-# between operating systems and are supplied later.
+# The minimum required version of Docker. The package names vary between
+# operating systems and are supplied later.
 DockerDependency = partial(Dependency, compare='>=', version='1.3.0')
 # This ensures that servers with the broken docker-io-1.4.1 package get
 # upgraded when Flocker is installed.
@@ -211,8 +212,6 @@ DockerDependency = partial(Dependency, compare='>=', version='1.3.0')
 # See https://clusterhq.atlassian.net/browse/FLOC-1293
 FedoraDockerDependency = partial(
     Dependency, package='docker-io', compare='>=', version='1.4.1-8.fc20')
-
-ZFSDependency = partial(Dependency, compare='>=', version='0.6.3')
 
 # We generate three packages.  ``clusterhq-python-flocker`` contains the entire
 # code base.  ``clusterhq-flocker-cli`` and ``clusterhq-flocker-node`` are meta
@@ -236,20 +235,17 @@ DEPENDENCIES = {
         'fedora': (
             FedoraDockerDependency(),
             Dependency(package='/usr/sbin/iptables'),
-            ZFSDependency(package='zfs'),
             Dependency(package='openssh-clients'),
         ),
         'centos': (
             DockerDependency(package='docker'),
             Dependency(package='/usr/sbin/iptables'),
-            ZFSDependency(package='zfs'),
             Dependency(package='openssh-clients'),
         ),
         'ubuntu': (
             # trust-updates version
             DockerDependency(package='docker.io'),
             Dependency(package='iptables'),
-            ZFSDependency(package='zfsutils'),
             Dependency(package='openssh-client'),
         ),
     },
@@ -592,12 +588,12 @@ IGNORED_WARNINGS = {
         'non-conffile-in-etc /etc/ufw/applications.d/flocker-control',
 
         # Upstart control files are not installed as conffiles.
-        'non-conffile-in-etc /etc/init/flocker-agent.conf',
+        'non-conffile-in-etc /etc/init/flocker-dataset-agent.conf',
         'non-conffile-in-etc /etc/init/flocker-container-agent.conf',
         'non-conffile-in-etc /etc/init/flocker-control.conf',
 
         # Cryptography hazmat bindings
-        'package-installs-python-pycache-dir opt/flocker/lib/python2.7/site-packages/cryptography/hazmat/bindings/__pycache__/',
+        'package-installs-python-pycache-dir opt/flocker/lib/python2.7/site-packages/cryptography/hazmat/bindings/__pycache__/',  # noqa
 
         # We require an old version of setuptools
         # XXX This should not be necessary after
@@ -659,7 +655,7 @@ IGNORED_WARNINGS = {
          'etc/ufw/applications.d/flocker-control'),
 
         # Upstart control files are not installed as conffiles.
-        'file-in-etc-not-marked-as-conffile etc/init/flocker-agent.conf',
+        'file-in-etc-not-marked-as-conffile etc/init/flocker-dataset-agent.conf',  # noqa
         'file-in-etc-not-marked-as-conffile etc/init/flocker-container-agent.conf',  # noqa
         'file-in-etc-not-marked-as-conffile etc/init/flocker-control.conf',
 

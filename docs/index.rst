@@ -14,10 +14,11 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   introduction
+   introduction/index
    using/tryflocker
    indepth/index
    advanced/index
+   reference/index
    gettinginvolved/index
    roadmap/index
    faq/index

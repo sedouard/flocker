@@ -12,17 +12,18 @@ If you haven't :doc:`installed that package <../indepth/installation>` yet, you 
 Command Line Arguments
 ======================
 
-``flocker-deploy`` takes a minimum of three arguments.
-The first of these is the IP or hostname of the cluster's control service.
-The seconds is the path to a deployment configuration file and the third is the path to an application configuration file.
+``flocker-deploy`` takes three arguments:
+
+1. The hostname of the machine where the control service (including the Flocker REST API) is running.
+2. The path to a deployment configuration file.
+3. The path to an application configuration file.
 
 .. code-block:: console
 
-    $ flocker-deploy 172.16.255.250 clusterhq_deployment.yml clusterhq_app.yml
+    $ flocker-deploy controlservice.example.com clusterhq_deployment.yml clusterhq_app.yml
 
-The contents of these two configuration files determine what actions Flocker actually takes.
-The configuration files completely control this; there are no other required command line arguments or options.
-See :ref:`configuration` for details about these two files.
+The contents of the two configuration files determine what actions Flocker actually takes by replacing the existing cluster configuration.
+See :ref:`configuration` for details about the two files.
 
 You can run ``flocker-deploy`` anywhere you have it installed.
 The containers you are managing do not need to be running on the same host as ``flocker-deploy``\ .
@@ -39,7 +40,7 @@ Before ``flocker-deploy`` can do this it needs to be able to authenticate itself
 
 Flocker uses TLS mutual authentication to communicate with the control service you specify as the first command line argument.
 
-To authenticate with the control service, you will need a copy of the public cluster certificate created when you first :ref:`installed flocker on your nodes <authentication>` and an API user certificate, which you can :doc:`generate <./api/authentication>` using the ``flocker-ca`` tool.
+To authenticate with the control service, you will need a copy of the public cluster certificate created when you first :ref:`installed flocker on your nodes <authentication>` and an API user certificate, which you can :ref:`generate <generate-api>` using the ``flocker-ca`` tool.
 
 For ``flocker-deploy``, your API user certificate and key should be in files named ``user.crt`` and ``user.key`` and the cluster certificate in file ``cluster.crt``.
 

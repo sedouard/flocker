@@ -8,6 +8,8 @@ from zope.interface import (
     Attribute as InterfaceAttribute, Interface, implementer)
 from characteristic import attributes, Attribute
 
+from flocker.provision._ssh import run_remotely, run_from_args
+
 
 def _fixed_OpenStackNodeDriver_to_node(self, api_node):
     """
@@ -140,6 +142,25 @@ class INode(Interface):
     address = InterfaceAttribute('ip address for node')
     distribution = InterfaceAttribute('distribution on node')
 
+    def get_default_username():
+        """
+        Return the username available by default on a system.
+
+        Some cloud systems (e.g. AWS) provide a specific username, which
+        depends on the OS distribution started.  This method returns
+        the username based on the node distribution.
+        """
+
+    def provision(package_source, variants):
+        """
+        Provision flocker on this node.
+
+        :param PackageSource package_source: The source from which to install
+            flocker.
+        :param set variants: The set of variant configurations to use when
+            provisioning
+        """
+
 
 @implementer(INode)
 @attributes([
@@ -170,11 +191,27 @@ class LibcloudNode(object):
     def reboot(self):
         """
         Reboot the node.
-        """
-        self._node.reboot()
 
-        self._node, self.addresses = (
-            self._node.driver.wait_until_running([self._node])[0])
+        :return Effect:
+        """
+
+        def do_reboot(_):
+            self._node.reboot()
+            self._node, self.addresses = (
+                self._node.driver.wait_until_running([self._node])[0])
+            return
+
+        return run_remotely(
+            username="root",
+            address=self.address,
+            commands=run_from_args(["sync"])
+        ).on(success=do_reboot)
+
+    def get_default_username(self):
+        """
+        Return the default username on this provisioner.
+        """
+        return self._provisioner.get_default_user(self.distribution)
 
     def provision(self, package_source, variants=()):
         """
@@ -204,6 +241,7 @@ class LibcloudNode(object):
     Attribute('_create_node_arguments'),
     Attribute('provision'),
     Attribute('default_size'),
+    Attribute('get_default_user'),
 ], apply_immutable=True)
 class LibcloudProvisioner(object):
     """
@@ -217,6 +255,8 @@ class LibcloudProvisioner(object):
         libcloud's ``create_node``.
     :ivar callable provision: Function to call to provision a node.
     :ivar str default_size: Name of the default size of node to create.
+    :ivar callable get_default_user: Function to provide the default
+        username on the node.
     """
 
     def create_node(self, name, distribution,

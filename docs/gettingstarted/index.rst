@@ -89,17 +89,14 @@ Getting started with Flocker
 
       .. noscript-content::
 
-         Ubuntu / Debian
-         ^^^^^^^^^^^^^^^
+         Ubuntu 14.04
+         ^^^^^^^^^^^^
 
          Install the Flocker client on your Linux machine:
 
-         .. version-code-block:: console
+         .. task:: install_cli ubuntu-14.04
+            :prompt: you@laptop:~$
 
-            you@laptop:~$ sudo apt-get update && sudo apt-get install -y gcc python2.7 python-virtualenv python2.7-dev && \
-              virtualenv flocker-tutorial && \
-              flocker-tutorial/bin/pip install --upgrade pip && \
-              flocker-tutorial/bin/pip install --quiet https://clusterhq-archive.s3.amazonaws.com/python/Flocker-|latest-installable|-py2-none-any.whl && source flocker-tutorial/bin/activate
 
          Fedora 20
          ^^^^^^^^^
@@ -127,17 +124,13 @@ Getting started with Flocker
               brew tap clusterhq/flocker && \
               brew install flocker-|latest-installable|
 
-         Ubuntu / Debian
-         ^^^^^^^^^^^^^^^
+         Ubuntu 14.04
+         ^^^^^^^^^^^^
 
          Install the Flocker client on your Linux machine:
 
-         .. version-code-block:: console
-
-            you@laptop:~$ sudo apt-get update && sudo apt-get install -y gcc python2.7 python-virtualenv python2.7-dev && \
-              virtualenv flocker-tutorial && \
-              flocker-tutorial/bin/pip install --upgrade pip && \
-              flocker-tutorial/bin/pip install --quiet https://clusterhq-archive.s3.amazonaws.com/python/Flocker-|latest-installable|-py2-none-any.whl && source flocker-tutorial/bin/activate
+         .. task:: install_cli ubuntu-14.04
+            :prompt: you@laptop:~$
 
          Fedora 20
          ^^^^^^^^^
@@ -251,13 +244,13 @@ Getting started with Flocker
            "172.16.255.251": []
 
 
-      The fig.yml describes your distributed application.
-      The deployment.yml describes which containers to deploy where.
+      The ``fig.yml`` file describes your distributed application.
+      The ``deployment-node1.yml`` file describes which containers to deploy where.
       If you are using real servers on AWS, you'll need to change the IP addresses in the deployment file.
 
       .. code-block:: console
 
-         you@laptop:~$ flocker-deploy deployment-node1.yml fig.yml
+         you@laptop:~$ flocker-deploy 172.16.255.250 deployment-node1.yml fig.yml
 
       Now load http://172.16.255.250/ in a web browser or the external IP of one of your AWS nodes.
       It works!
@@ -289,7 +282,7 @@ Getting started with Flocker
 
       .. code-block:: console
 
-         you@laptop:~$ flocker-deploy deployment-node2.yml fig.yml
+         you@laptop:~$ flocker-deploy 172.16.255.250 deployment-node2.yml fig.yml
 
       .. image:: images/migration.png
          :class: img-responsive img-spaced
