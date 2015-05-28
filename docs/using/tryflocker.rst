@@ -125,11 +125,13 @@ First, download the sample Python web application and Redis server that we have 
 
 .. note:: You will find 3 .yml files in the downloaded tutorial folder. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'.
 
+:code: 
+
 Secondly, install the web application and server on the first host:
 
 .. code-block:: console
 
-	you@laptop:~$ flocker-deploy deployment-node1.yml fig.yml
+	you@laptop:~$ flocker-deploy http://172.16.255.250/ deployment-node1.yml fig.yml
 
 Visit http://172.16.255.250/ (or the IP of the first host that you are using). You will see the visit count displayed.
 
@@ -158,9 +160,9 @@ To move the container with the Redis server along with its data volume, run floc
 
 .. code-block:: console
 
-	you@laptop:~$ flocker-deploy deployment-node2.yml fig.yml
+	you@laptop:~$ flocker-deploy http://172.16.255.250/ deployment-node2.yml fig.yml
 	
-The Redis container and its volume have now both been moved to the second host. Flocker has maintained its link to the web application on the first host.
+The container on the Redis server and its volume have now both been moved to the second host. Flocker has maintained its link to the web application on the first host.
 
 Visit http://172.16.255.250/ (or the IP of the first host that you are using). You will see the visit count is still persisted.
 
