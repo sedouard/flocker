@@ -19,12 +19,11 @@ You will need
 1)	Somewhere to install the Flocker client. Make sure you have **one** of the following on your machine:
 
 	- OS X with `Homebrew <http://www.brew.sh/>`_ installed.
-	- Fedora 20.
 	- Ubuntu 14.04.
 
 2) 	Two hosts for the two instances of Flocker node. The options are:
 
-	- Two Virtual Machines (VMs) on your local machine. For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have Vagrant and VirtualBox installed.
+	- Two Virtual Machines (VMs) on your local machine. For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
 	- AWS or Rackspace (you will need an account with root access).
 	- Physical hosts with a supported operating system.
 	- Any combination of the above.
@@ -69,10 +68,8 @@ Ubuntu 14.04
 ************
 .. version-code-block:: console
 
-	you@laptop:~$ sudo apt-get update && sudo apt-get install -y gcc python2.7 	python-virtualenv python2.7-dev && \
-	  virtualenv flocker-tutorial && \
-	  flocker-tutorial/bin/pip install --upgrade pip && \
-	  flocker-tutorial/bin/pip install --quiet https://storage.googleapis.com/archive.clusterhq.com/downloads/flocker/Flocker-|latest-installable|-py2-none-any.whl && source flocker-tutorial/bin/activate
+.. task:: install_cli ubuntu-14.04
+   :prompt: you@laptop:~$
 
 .. note:: To test your installation, run the following to check that you have the Flocker client installed correctly:
 
