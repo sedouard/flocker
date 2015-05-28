@@ -125,7 +125,36 @@ First, download the sample Python web application and Redis server that we have 
 
 .. note:: You will find 3 .yml files in the downloaded tutorial folder. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'.
 
-:code: 
+**The docker-compose.yml file**
+
+The ``docker-compose.yml`` file describes your distributed application (note, Docker Compose was formerly known as Fig):
+
+	.. code-block:: yaml
+	
+		web:
+		  image: clusterhq/flask
+		  links:
+		   - "redis:redis"
+		   ports:
+		   - "80:80"
+		   redis:
+		   image: dockerfile/redis
+		   ports:
+		   - "6379:6379"
+		   volumes: ["/data"]
+
+**The deployment-node1.yml file**
+
+The ``deployment-node1.yml`` file describes which containers to deploy, and where: 
+
+	.. code-block:: yaml
+
+		"version": 1
+		"nodes":
+		  "172.16.255.250": ["web", "redis"]
+		  "172.16.255.251": []
+
+.. note:: If you are using real servers on AWS, you'll need to change the IP addresses in the deployment file.
 
 Secondly, install the web application and server on the first host:
 
@@ -137,14 +166,14 @@ Visit http://172.16.255.250/ (or the IP of the first host that you are using). Y
 
 Visit http://172.16.255.251/ (or the IP of the second host that you are using). You will see that the count persists because Flocker routes the traffic from either host named in the deployment file to the one that has the application.
 
-Run the following from within the vagrant-flocker folder to check that the Redis container is running on the first host:
+Run the following from within the /vagrant-flocker folder to check that the Redis server container is running on the first host:
 
-   .. code-block:: console
+.. code-block:: console
    
-	 you@laptop:~$ cd vagrant-flocker
-	 you@laptop:~$ vagrant ssh node1 -c "docker ps" 
+   you@laptop:~$ cd vagrant-flocker
+   you@laptop:~$ vagrant ssh node1 -c "docker ps" 
      
-You should see the Redis container in the output from Docker.
+You should see the Redis server container in the output from Docker.
    
 If you are running on AWS, manually SSH onto the first node and run :code:`docker ps` to see the same output.
 
@@ -156,7 +185,16 @@ The diagram below illustrates your current setup:
 .. image:: images/flocker3.jpg
    :alt: Diagram illustrating setup at Step 4.
 
-To move the container with the Redis server along with its data volume, run flocker-deploy with a different deployment .yml file: 
+To move the container with the Redis server along with its data volume, we use the deployment-node2.yml file:
+
+	.. code-block:: yaml
+
+		"version": 1
+		"nodes":
+		  "172.16.255.250": ["web"]
+		  "172.16.255.251": ["redis"]
+
+Run the following:
 
 .. code-block:: console
 
@@ -168,14 +206,14 @@ Visit http://172.16.255.250/ (or the IP of the first host that you are using). Y
 
 Visit http://172.16.255.251/ (or the IP of the second host that you are using). You will see that the count still persists, even though the container with the volume has moved between hosts.
 
-Run the following from within the vagrant-flocker folder to check that the Redis container is running on the first host:
+Run the following from within the vagrant-flocker folder to check that the Redis server container is running on the first host:
 
-   .. code-block:: console
+.. code-block:: console
    
-	 you@laptop:~$ cd vagrant-flocker
-	 you@laptop:~$ vagrant ssh node2 -c "docker ps" 
+   you@laptop:~$ cd vagrant-flocker
+   you@laptop:~$ vagrant ssh node2 -c "docker ps" 
      
-You should see the Redis container in the output from Docker.
+You should see the Redis server container in the output from Docker.
 
 If you are running on AWS, manually SSH onto the second node and run :code:`docker ps` to see the same output.
 
