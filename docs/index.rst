@@ -15,11 +15,9 @@ Contents:
    :maxdepth: 2
 
    introduction/index
-   using/tryflocker
-   indepth/index
-   advanced/index
+   using/index
+   concepts/index
    reference/index
-   gettinginvolved/index
-   roadmap/index
+   releasenotes/index
    faq/index
-   authors
+   gettinginvolved/index
