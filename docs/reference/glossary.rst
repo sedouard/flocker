@@ -89,7 +89,7 @@ Cluster
 .. _migrate-definition:
 
 Migrate
-   To move a container or cluster (or part of a cluster) to another node.
+   To move a volume, container, or cluster (or part of a cluster) to another node.
 
 .. _node-definition:
 
