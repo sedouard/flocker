@@ -43,7 +43,7 @@ Flocker CLI
 
 .. _container-agent-definition:
 
-Flocker Container Agent
+Flocker container agent
   An agent which manages the Docker containers on a node.
   It manages containers using the Docker REST API.
 
@@ -51,7 +51,7 @@ Flocker Container Agent
 
 Flocker control service
   This service stores the configuration and state of the cluster. The Flocker control service can be deployed on a dedicated host or on one of the cluster nodes.
-  The Flocker control service manages the Flocker ZFS Agent and the Flocker Container, which in turn implement the changes to the configuration and state of the cluster.
+  The Flocker control service manages the Flocker ZFS agent and the Flocker container, which in turn implement the changes to the configuration and state of the cluster.
 
 .. _flocker-cli-definition:
 
@@ -61,11 +61,11 @@ The :code:`flocker-cli`
 .. _flocker-node-definition:
 
 The :code:`flocker-node`
-  An operating system package which will install the Flocker ZFS Agent and the Flocker Container Agent on a node which is running a Linux operating system.
+  An operating system package which will install the Flocker ZFS agent and the Flocker container agent on a node which is running a Linux operating system.
 
 .. _zfs-agent-definition:
 
-Flocker ZFS Agent
+Flocker ZFS agent
   An agent which manages Flocker datasets on ZFS filesystems on a node.
 
 Other terms
