@@ -22,46 +22,48 @@ Beta
 
 .. _production-ready-definition:
 Production ready
-   This product or feature is suitable for production use; expect API stability between versions; robust security; product stability for all supported uses. 
-   
+   This product or feature is suitable for production use; expect API stability between versions; robust security; product stability for all supported uses.
+
 Flocker terms
 =============
+
+.. _api-definition:
+Flocker API
+  A collection of RESTful API endpoints that allow you to configure a Flocker cluster programmatically with the tool and language of your choice.
 
 .. _cli-definition:
 Flocker CLI
   Also known as the Flocker client.
   This is a tool for controlling Flocker directly via the command line. It interfaces with the Flocker API.
 
-.. _api-definition:
-Flocker API
-  A collection of RESTful API endpoints that allow you to configure a Flocker cluster programmatically with the tool and language of your choice.
-
-.. _control-service-definition:
-Flocker control service
-  This service stores the configuration and state of the cluster. The Flocker control service can be deployed on a dedicated host or on one of the cluster nodes. 
-  The Flocker control service manages the Flocker ZFS Agent and the Flocker Container, which in turn implement the changes to the configuration and state of the cluster.
-
-.. _zfs-agent-definition:
-Flocker ZFS Agent
-  An agent which manages Flocker datasets on ZFS filesystems on a node.
-
 .. _container-agent-definition:
 Flocker Container Agent
   An agent which manages the Docker containers on a node.
   It manages containers using the Docker REST API.
 
-:code:`flocker-node`
+.. _control-service-definition:
+Flocker control service
+  This service stores the configuration and state of the cluster. The Flocker control service can be deployed on a dedicated host or on one of the cluster nodes.
+  The Flocker control service manages the Flocker ZFS Agent and the Flocker Container, which in turn implement the changes to the configuration and state of the cluster.
+
+.. _flocker-cli-definition:
+The :code:`flocker-cli`
+  An operating system package which will install the Flocker client on a computer which is running a Linux operating system.
+
+.. _flocker-node-definition:
+The :code:`flocker-node`
   An operating system package which will install the Flocker ZFS Agent and the Flocker Container Agent on a node which is running a Linux operating system.
 
-:code:`flocker-cli`
-  An operating system package which will install the Flocker client on a computer which is running a Linux operating system.
+.. _zfs-agent-definition:
+Flocker ZFS Agent
+  An agent which manages Flocker datasets on ZFS filesystems on a node.
 
 Other terms
 ===========
 
 .. _container-definition:
 Container
-   A virtual environment comprising an application and its dependencies. It isolates processes on the host operating system and uses the host kernel. 
+   A virtual environment comprising an application and its dependencies. It isolates processes on the host operating system and uses the host kernel.
 
 .. _client-definition:
 Client
@@ -69,7 +71,7 @@ Client
 
 .. _cluster-definition:
 Cluster
-   A system of connected containers. 
+   A system of connected containers.
 
 .. _migrate-definition:
 Migrate
@@ -78,8 +80,3 @@ Migrate
 .. _node-definition:
 Node
    A terminal in a network, either a physical or virtual machine.
-
-
-
-
-
