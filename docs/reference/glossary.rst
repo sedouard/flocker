@@ -55,12 +55,12 @@ Flocker control service
 
 .. _flocker-cli-definition:
 
-The :code:`flocker-cli`
+The :code:`flocker-cli` package
   An operating system package which will install the Flocker client on a computer which is running a Linux operating system.
 
 .. _flocker-node-definition:
 
-The :code:`flocker-node`
+The :code:`flocker-node` package
   An operating system package which will install the Flocker ZFS agent and the Flocker container agent on a node which is running a Linux operating system.
 
 .. _zfs-agent-definition:
