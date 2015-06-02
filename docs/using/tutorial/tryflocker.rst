@@ -116,15 +116,14 @@ Step 3: Deploying an app on the first host
 
 You will now have the Flocker client installed on your local machine and two instances of Flocker, each on a different host. Now you will create two Docker containers on one of the hosts. One is a Python web application and the other is Redis server, which stores its data on a volume.
 
-First, download the sample Python web application and Redis server that we have provided:
+Download the first 2 .yml files that we have provided:
 
-.. prompt:: curl [you@laptop:~$]
+.. prompt:: bash [you@laptop:~$]
 
-	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/fig.yml
+	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
 	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
-	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
 
-.. note:: You will find 3 .yml files in the downloaded tutorial folder. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'.
+.. note:: There are 3 .yml files to download. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'.
 
 **The docker-compose.yml file**
 
@@ -186,7 +185,13 @@ The diagram below illustrates your current setup:
 .. image:: images/flocker3.jpg
    :alt: Diagram illustrating setup at Step 4.
 
-To move the container with the Redis server along with its data volume, we use the deployment-node2.yml file:
+You'll need to download the last of the .yml files that we have provided:
+
+.. prompt:: bash [you@laptop:~$]
+
+	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
+
+To move the container with the Redis server along with its data volume, use the deployment-node2.yml file:
 
 	.. code-block:: yaml
 
