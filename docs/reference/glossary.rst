@@ -51,7 +51,7 @@ Flocker Container Agent
 
 Flocker Control Service
   This service stores the configuration and state of the cluster. The Flocker Control Service can be deployed on a dedicated host or on one of the cluster nodes.
-  The Flocker Control Service manages the Flocker ZFS Agent and the Flocker container, which in turn implement the changes to the configuration and state of the cluster.
+  The Flocker Control Service manages the Flocker ZFS Agent and the Flocker Container Agent, which in turn implement the changes to the configuration and state of the cluster.
 
 .. _flocker-cli-definition:
 
