@@ -1,4 +1,4 @@
-.. _try:
+.. _tryflocker:
 
 ===========
 Try Flocker
@@ -18,19 +18,19 @@ You will then be ready to use Flocker to migrate a Docker container with a volum
 You will need
 -------------
 
-1)	Somewhere to install the Flocker client.
+1. Somewhere to install the Flocker client.
 Make sure you have **one** of the following on your machine:
 
-   - OS X with `Homebrew <http://www.brew.sh/>`_ installed.
-   - Ubuntu 14.04.
+- OS X with `Homebrew <http://www.brew.sh/>`_ installed.
+- Ubuntu 14.04.
 
-2) 	Two hosts for two instances of Flocker.
+2. Two hosts for two instances of Flocker.
 The options are:
 
-   - Two Virtual Machines (VMs) on your local machine. For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
-   - AWS or Rackspace (you will need an account with root access).
-   - Physical hosts with a supported operating system.
-   - Any combination of the above.
+- Two Virtual Machines (VMs) on your local machine. For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
+- AWS or Rackspace (you will need an account with root access).
+- Physical hosts with a supported operating system.
+- Any combination of the above.
 
 .. note:: If you choose to use VMs on your local machine, you’ll need at least 4GB RAM.
 
