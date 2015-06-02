@@ -116,12 +116,13 @@ Step 3: Deploying an app on the first host
 
 You will now have the Flocker client installed on your local machine and two instances of Flocker, each on a different host. Now you will create two Docker containers on one of the hosts. One is a Python web application and the other is Redis server, which stores its data on a volume.
 
-First, download the sample Python web application and Redis server that we have provided on GitHub:
+First, download the sample Python web application and Redis server that we have provided:
 
-.. prompt:: bash [you@laptop:~$]
+.. prompt:: curl [you@laptop:~$]
 
-	git clone https://github.com/clusterhq/flocker-quickstart
-	cd flocker-quickstart
+	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/fig.yml
+	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
+	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
 
 .. note:: You will find 3 .yml files in the downloaded tutorial folder. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'.
 
