@@ -21,7 +21,7 @@ You will need
 1. Somewhere to install the Flocker client.
 Make sure you have **one** of the following on your machine:
 
-- OS X with `Homebrew <http://www.brew.sh/>`_ installed.
+- OS X with `Homebrew <http://brew.sh/>`_ installed.
 - Ubuntu 14.04.
 
 2. Two hosts for two instances of Flocker.
