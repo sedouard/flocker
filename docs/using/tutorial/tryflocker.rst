@@ -71,9 +71,9 @@ Ubuntu 14.04
 
 To test your installation, run the following to check that you have the Flocker client installed correctly:
 
-.. code-block:: console
+.. prompt:: bash [you@laptop:~$]
 
-   you@laptop:~$ flocker-deploy --version
+   flocker-deploy --version
    
 Successful installation will display the version of Flocker.
 
@@ -86,9 +86,9 @@ Option A: Installing Flocker on local VMs
 
 In Step 1 you installed the Flocker client on your local machine. For the next step in this tutorial you now need two instances of Flocker, each on a separate host. Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment. To install Flocker (plus dependencies) on the hosts, run the following commands and Vagrant will create the environments you need: 
 
-.. code-block:: console
+.. prompt:: bash [you@laptop:~$]
 
-	you@laptop:~$ git clone \
+	git clone \
 	  https://github.com/clusterhq/vagrant-flocker && \
 	  cd vagrant-flocker && \
 	  vagrant up && \
@@ -97,9 +97,9 @@ In Step 1 you installed the Flocker client on your local machine. For the next s
 
 To test your installation, run the following to check that you have the Flocker client installed correctly:
 
-.. code-block:: console
+.. prompt:: bash [you@laptop:~$]
  
-	you@laptop:~$ vagrant ssh node1 -c "flocker-reportstate --version" 
+	vagrant ssh node1 -c "flocker-reportstate --version" 
 
 Successful installation will display the version of Flocker, and confirm the closure of the connection.
 
@@ -118,10 +118,10 @@ You will now have the Flocker client installed on your local machine and two ins
 
 First, download the sample Python web application and Redis server that we have provided on GitHub:
 
-.. code-block:: console
+.. prompt:: bash [you@laptop:~$]
 
-	you@laptop:~$ git clone https://github.com/clusterhq/flocker-quickstart
-	you@laptop:~$ cd flocker-quickstart
+	git clone https://github.com/clusterhq/flocker-quickstart
+	cd flocker-quickstart
 
 .. note:: You will find 3 .yml files in the downloaded tutorial folder. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'.
 
@@ -158,9 +158,9 @@ The ``deployment-node1.yml`` file describes which containers to deploy, and wher
 
 Secondly, install the web application and server on the first host:
 
-.. code-block:: console
+.. prompt:: bash [you@laptop:~$]
 
-	you@laptop:~$ flocker-deploy http://172.16.255.250/ deployment-node1.yml fig.yml
+	flocker-deploy http://172.16.255.250/ deployment-node1.yml fig.yml
 
 Visit http://172.16.255.250/ (or the IP of the first host that you are using). You will see the visit count displayed.
 
@@ -168,10 +168,10 @@ Visit http://172.16.255.251/ (or the IP of the second host that you are using). 
 
 Run the following from within the /vagrant-flocker folder to check that the Redis server container is running on the first host:
 
-.. code-block:: console
+.. prompt:: bash [you@laptop:~$]
    
-   you@laptop:~$ cd vagrant-flocker
-   you@laptop:~$ vagrant ssh node1 -c "docker ps" 
+   cd vagrant-flocker
+   vagrant ssh node1 -c "docker ps" 
      
 You should see the Redis server container in the output from Docker.
    
@@ -196,9 +196,9 @@ To move the container with the Redis server along with its data volume, we use t
 
 Run the following:
 
-.. code-block:: console
+.. prompt:: bash [you@laptop:~$]
 
-	you@laptop:~$ flocker-deploy http://172.16.255.250/ deployment-node2.yml fig.yml
+	flocker-deploy http://172.16.255.250/ deployment-node2.yml fig.yml
 	
 The container on the Redis server and its volume have now both been moved to the second host. Flocker has maintained its link to the web application on the first host.
 
@@ -208,10 +208,10 @@ Visit http://172.16.255.251/ (or the IP of the second host that you are using). 
 
 Run the following from within the vagrant-flocker folder to check that the Redis server container is running on the first host:
 
-.. code-block:: console
+.. prompt:: bash [you@laptop:~$]
    
-   you@laptop:~$ cd vagrant-flocker
-   you@laptop:~$ vagrant ssh node2 -c "docker ps" 
+   cd vagrant-flocker
+   vagrant ssh node2 -c "docker ps" 
      
 You should see the Redis server container in the output from Docker.
 
