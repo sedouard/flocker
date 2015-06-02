@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   id="svg3424"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="flocker_postmigration.svg">
+  <defs
+     id="defs3426">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4584">
+      <stop
+         style="stop-color:#ff9955;stop-opacity:1;"
+         offset="0"
+         id="stop4586" />
+      <stop
+         style="stop-color:#ff9955;stop-opacity:0;"
+         offset="1"
+         id="stop4588" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4584"
+       id="linearGradient4594"
+       x1="20.861073"
+       y1="37.413204"
+       x2="139.31912"
+       y2="37.413204"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4584"
+       id="linearGradient6069"
+       gradientUnits="userSpaceOnUse"
+       x1="20.861073"
+       y1="37.413204"
+       x2="139.31912"
+       y2="37.413204" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:document-units="mm"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.61399264"
+     inkscape:cx="455.03438"
+     inkscape:cy="425.36839"
+     inkscape:current-layer="layer1"
+     id="namedview3428"
+     showgrid="true"
+     inkscape:window-width="1440"
+     inkscape:window-height="791"
+     inkscape:window-x="0"
+     inkscape:window-y="540"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4337" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata3430">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke-width:0.8;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3435"
+       width="146.25999"
+       height="179.41226"
+       x="11.7008"
+       y="14.986672" />
+    <rect
+       style="fill:none;stroke-width:0.8;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3437"
+       width="46.8032"
+       height="1.3000889"
+       x="111.1576"
+       y="65.69014" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3439"
+       width="133.25911"
+       height="171.61172"
+       x="13.650934"
+       y="-184.64827"
+       transform="scale(1,-1)" />
+    <rect
+       transform="scale(1,-1)"
+       y="-184.64827"
+       x="154.71057"
+       height="171.61172"
+       width="133.25911"
+       id="rect4241"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       y="58.935825"
+       x="21.399204"
+       height="48.425266"
+       width="117.38178"
+       id="rect4245"
+       style="fill:none;stroke:#000000;stroke-width:0.8;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       id="g6056">
+      <rect
+         y="20.187027"
+         x="21.261072"
+         height="34.452354"
+         width="117.65804"
+         id="rect4243"
+         style="fill:url(#linearGradient4594);stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1" />
+      <text
+         transform="scale(0.97083457,1.0300416)"
+         sodipodi:linespacing="125%"
+         id="text4262"
+         y="39.591812"
+         x="34.648876"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87777805px;line-height:125%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="39.591812"
+           x="34.648876"
+           id="tspan4264"
+           sodipodi:role="line">Flocker</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87777805px;line-height:125%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="28.038698"
+       y="81.297768"
+       id="text4266"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4268"
+         x="28.038698"
+         y="81.297768">Docker Container</tspan><tspan
+         sodipodi:role="line"
+         x="28.038698"
+         y="93.644989"
+         id="tspan4270"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87777805px;line-height:125%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none">         WEB</tspan></text>
+    <g
+       id="g6075"
+       transform="translate(141.1128,0)">
+      <rect
+         y="112.60345"
+         x="21.155651"
+         height="48.425266"
+         width="117.38178"
+         id="rect4254"
+         style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="160.9637"
+         x="77.532784"
+         height="17.573181"
+         width="60.942875"
+         id="rect4256"
+         style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87777805px;line-height:125%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="28.714445"
+         y="134.50572"
+         id="text4272"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4274"
+           x="28.714445"
+           y="134.50572">Docker Container</tspan><tspan
+           sodipodi:role="line"
+           x="28.714445"
+           y="146.85295"
+           id="tspan4276"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87777805px;line-height:125%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none">         REDIS</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4278"
+         y="172.1971"
+         x="93.065567"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.11388874px;line-height:125%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="172.1971"
+           x="93.065567"
+           id="tspan4280"
+           sodipodi:role="line">Volume</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.11388874px;line-height:125%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="34.754276"
+       y="199.15877"
+       id="text4295"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6137"
+         x="34.754276"
+         y="199.15877">http://172.16.255.250/</tspan></text>
+    <g
+       id="g6061"
+       transform="translate(141.57245,0)">
+      <rect
+         style="fill:url(#linearGradient6069);fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6063"
+         width="117.65804"
+         height="34.452354"
+         x="21.261072"
+         y="20.187027" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87777805px;line-height:125%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="34.648876"
+         y="39.591812"
+         id="text6065"
+         sodipodi:linespacing="125%"
+         transform="scale(0.97083457,1.0300416)"><tspan
+           sodipodi:role="line"
+           id="tspan6067"
+           x="34.648876"
+           y="39.591812">Flocker</tspan></text>
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text6139"
+       y="199.15877"
+       x="174.94778"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.11388894px;line-height:125%;font-family:Verdana;-inkscape-font-specification:'Verdana, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.80000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+       xml:space="preserve"><tspan
+         sodipodi:role="line"
+         id="tspan6143">http://172.16.255.251/</tspan></text>
+  </g>
+</svg>

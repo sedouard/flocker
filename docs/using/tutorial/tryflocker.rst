@@ -7,26 +7,30 @@ Try Flocker
 In this tutorial (30 minutes)
 -----------------------------
 
-You will use Flocker to migrate a Docker container with its data volume from one host to another. The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts.
+You will use Flocker to migrate a Docker container with its data volume from one host to another.
+The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts.
 
-To begin the tutorial you will first install the Flocker client on your local machine, then install Flocker onto two hosts. You will then be ready to use Flocker to migrate a Docker container with a volume attached from one host to the other.
+To begin the tutorial you will first install the Flocker client on your local machine, then install Flocker onto two hosts.
+You will then be ready to use Flocker to migrate a Docker container with a volume attached from one host to the other.
 
 .. note:: This tutorial takes roughly 30 minutes, but because there are a few things to download, times might vary depending on the speed of your connection.
 
 You will need
 -------------
 
-1)	Somewhere to install the Flocker client. Make sure you have **one** of the following on your machine:
+1)	Somewhere to install the Flocker client.
+Make sure you have **one** of the following on your machine:
 
-	- OS X with `Homebrew <http://www.brew.sh/>`_ installed.
-	- Ubuntu 14.04.
+   - OS X with `Homebrew <http://www.brew.sh/>`_ installed.
+   - Ubuntu 14.04.
 
-2) 	Two hosts for two instances of Flocker. The options are:
+2) 	Two hosts for two instances of Flocker.
+The options are:
 
-	- Two Virtual Machines (VMs) on your local machine. For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
-	- AWS or Rackspace (you will need an account with root access).
-	- Physical hosts with a supported operating system.
-	- Any combination of the above.
+   - Two Virtual Machines (VMs) on your local machine. For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
+   - AWS or Rackspace (you will need an account with root access).
+   - Physical hosts with a supported operating system.
+   - Any combination of the above.
 
 .. note:: If you choose to use VMs on your local machine, you’ll need at least 4GB RAM.
 
@@ -40,24 +44,26 @@ Contents
 Overview
 ^^^^^^^^
 
-The following diagram illustrates the setup that you will create first:
+You will be controlling your Flocker cluster via the CLI you've installed locally.
+The following diagram illustrates the initial server-side Flocker setup that you will control via the CLI.
 
-.. image:: images/flocker1.jpg
-   :alt: Diagram illustrating first setup.
+.. image:: images/flocker_pretutorial.svg
+   :alt: In the initial server-side Flocker setup there are two servers, one of which has two Docker containers running; one container is a running a web application, the other has a Redis database with a volume.
 
-The following diagram illustrates how the setup will be configured at the end of the tutorial:
+The following diagram illustrates how the server-side Flocker setup will be configured at the end of the tutorial:
 
-.. image:: images/flocker2.jpg
-   :alt: Diagram illustrating final setup.
+.. image:: images/flocker_posttutorial.svg
+   :alt: Following the completion of this tutorial the server-side Flocker setup will be configured with the web application still running within a container on the first server, while the Redis server with a volume is running on the second server.
 
 Flocker manages the data migration and the link between the two containers.
 
-.. To find out more about how Flocker managers migration of containers with volumes, see *add link here* 
+.. To find out more about how Flocker manages migration of containers with volumes, see *add link here* 
 
 Step 1: Installing the Flocker client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Flocker client runs locally on your machine, and will control the two instances of Flocker located on the hosts. To install the Flocker client, run the following in your terminal:
+The Flocker client runs locally on your machine, and will control the two instances of Flocker located on the hosts.
+To install the Flocker client, run the following in your terminal:
 
 OS X
 ****
@@ -84,29 +90,31 @@ Option A: Installing Flocker on local VMs
 
 .. note:: You must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_  installed to create the VMs and start the containers for this tutorial.
 
-In Step 1 you installed the Flocker client on your local machine. For the next step in this tutorial you now need two instances of Flocker, each on a separate host. Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment. To install Flocker (plus dependencies) on the hosts, run the following commands and Vagrant will create the environments you need: 
+In Step 1 you installed the Flocker client on your local machine.
+For the next step in this tutorial you now need two instances of Flocker, each on a separate host.
+Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
+To install Flocker (plus dependencies) on the hosts, run the following command and Vagrant will create the environments you need:
 
 .. prompt:: bash [you@laptop:~$]
 
-	git clone \
-	  https://github.com/clusterhq/vagrant-flocker && \
-	  cd vagrant-flocker && \
-	  vagrant up && \
-	  [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
-	  ssh-add ~/.vagrant.d/insecure_private_key
+	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \     vagrant up && \
+    [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
+    ssh-add ~/.vagrant.d/insecure_private_key
 
 To test your installation, run the following to check that you have the Flocker client installed correctly:
 
 .. prompt:: bash [you@laptop:~$]
  
-	vagrant ssh node1 -c "flocker-reportstate --version" 
+	vagrant ssh node1 -c "flocker-reportstate --version"
 
 Successful installation will display the version of Flocker, and confirm the closure of the connection.
 
 Option B: Installing Flocker on AWS or Rackspace
 ************************************************
 
-The two instances of Flocker each run on a separate host. Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment. To install Flocker (plus dependencies), follow the links to the direct instructions:
+The two instances of Flocker each run on a separate host.
+Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
+To install Flocker (plus dependencies), follow the links to the direct instructions:
 
 - :ref:`AWS install instructions <aws-install>`
 - :ref:`Rackspace install instructions <rackspace-install>`
@@ -114,7 +122,9 @@ The two instances of Flocker each run on a separate host. Flocker manages the li
 Step 3: Deploying an app on the first host
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You will now have the Flocker client installed on your local machine and two instances of Flocker, each on a different host. Now you will create two Docker containers on one of the hosts. One is a Python web application and the other is Redis server, which stores its data on a volume.
+You will now have the Flocker client installed on your local machine and two instances of Flocker, each on a different host.
+Now you will create two Docker containers on one of the hosts.
+One is a Python web application and the other is Redis server, which stores its data on a volume.
 
 Download the first 2 .yml files that we have provided:
 
@@ -125,34 +135,15 @@ Download the first 2 .yml files that we have provided:
 
 .. note:: There are 3 .yml files to download. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'.
 
-**The docker-compose.yml file**
-
 The ``docker-compose.yml`` file describes your distributed application (note, Docker Compose was formerly known as Fig):
 
-	.. code-block:: yaml
-	
-		web:
-		  image: clusterhq/flask
-		  links:
-		   - "redis:redis"
-		   ports:
-		   - "80:80"
-		   redis:
-		   image: dockerfile/redis
-		   ports:
-		   - "6379:6379"
-		   volumes: ["/data"]
+    .. literalinclude:: docker-compose.yml
+       :language: yaml
 
-**The deployment-node1.yml file**
+The ``deployment-node1.yml`` file describes which containers to deploy, and where:
 
-The ``deployment-node1.yml`` file describes which containers to deploy, and where: 
-
-	.. code-block:: yaml
-
-		"version": 1
-		"nodes":
-		  "172.16.255.250": ["web", "redis"]
-		  "172.16.255.251": []
+    .. literalinclude:: deployment-node1.yml
+       :language: yaml
 
 .. note:: If you are using real servers on AWS, you'll need to change the IP addresses in the deployment file.
 
@@ -164,9 +155,10 @@ Secondly, install the web application and server on the first host:
 
 Visit http://172.16.255.250/ (or the IP of the first host that you are using). You will see the visit count displayed.
 
-Visit http://172.16.255.251/ (or the IP of the second host that you are using). You will see that the count persists because Flocker routes the traffic from either host named in the deployment file to the one that has the application.
+Visit http://172.16.255.251/ (or the IP of the second host that you are using).
+You will see that the count persists because Flocker routes the traffic from either host named in the deployment file to the one that has the application.
 
-Run the following from within the /vagrant-flocker folder to check that the Redis server container is running on the first host:
+Run the following from within the :file:`/vagrant-flocker` folder to check that the Redis server container is running on the first host:
 
 .. prompt:: bash [you@laptop:~$]
    
@@ -180,9 +172,9 @@ If you are running on AWS, manually SSH onto the first node and run :code:`docke
 Step 4: Migrating a container to the second host
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The diagram below illustrates your current setup:
+The diagram below illustrates your current server-side Flocker setup:
 
-.. image:: images/flocker3.jpg
+.. image:: images/flocker_pretutorialwithhostname.svg
    :alt: Diagram illustrating setup at Step 4.
 
 You'll need to download the last of the .yml files that we have provided:
@@ -193,12 +185,8 @@ You'll need to download the last of the .yml files that we have provided:
 
 To move the container with the Redis server along with its data volume, use the deployment-node2.yml file:
 
-	.. code-block:: yaml
-
-		"version": 1
-		"nodes":
-		  "172.16.255.250": ["web"]
-		  "172.16.255.251": ["redis"]
+    .. literalinclude:: deployment-node2.yml
+       :language: yaml
 
 Run the following:
 
@@ -206,19 +194,22 @@ Run the following:
 
 	flocker-deploy http://172.16.255.250/ deployment-node2.yml fig.yml
 	
-The container on the Redis server and its volume have now both been moved to the second host. Flocker has maintained its link to the web application on the first host.
+The container on the Redis server and its volume have now both been moved to the second host.
+Flocker has maintained its link to the web application on the first host.
 
-Visit http://172.16.255.250/ (or the IP of the first host that you are using). You will see the visit count is still persisted.
+Visit http://172.16.255.250/ (or the IP of the first host that you are using).
+You will see the visit count is still persisted.
 
-Visit http://172.16.255.251/ (or the IP of the second host that you are using). You will see that the count still persists, even though the container with the volume has moved between hosts.
+Visit http://172.16.255.251/ (or the IP of the second host that you are using).
+You will see that the count still persists, even though the container with the volume has moved between hosts.
 
 Run the following from within the vagrant-flocker folder to check that the Redis server container is running on the first host:
 
 .. prompt:: bash [you@laptop:~$]
-   
+
    cd vagrant-flocker
-   vagrant ssh node2 -c "docker ps" 
-     
+   vagrant ssh node2 -c "docker ps"
+
 You should see the Redis server container in the output from Docker.
 
 If you are running on AWS, manually SSH onto the second node and run :code:`docker ps` to see the same output.
@@ -226,9 +217,9 @@ If you are running on AWS, manually SSH onto the second node and run :code:`dock
 Success!
 ^^^^^^^^
 
-You have now set up your first Flocker cluster and moved a Docker container with its volume while persisting its link to a web app on another server. 
+You have now set up your first Flocker cluster and moved a Docker container with its volume while persisting its link to a web app on another server.
 
-The following diagram illustrates how your setup looks now:
+The following diagram illustrates how your server-side Flocker setup looks now:
 
-.. image:: images/flocker4.jpg
+.. image:: images/flocker_posttutorialwithhostname.svg
    :alt: Diagram illustrating the setup following the completion of the tutorial.
