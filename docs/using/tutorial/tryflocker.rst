@@ -97,9 +97,9 @@ To install Flocker (plus dependencies) on the hosts, run the following command a
 
 .. prompt:: bash [you@laptop:~$]
 
-	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \     vagrant up && \
-    [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
-    ssh-add ~/.vagrant.d/insecure_private_key
+   curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \    vagrant up && \
+   [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
+   ssh-add ~/.vagrant.d/insecure_private_key
 
 To test your installation, run the following to check that you have the Flocker client installed correctly:
 
