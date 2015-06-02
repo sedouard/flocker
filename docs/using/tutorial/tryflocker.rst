@@ -175,7 +175,7 @@ Step 4: Migrating a container to the second host
 The diagram below illustrates your current server-side Flocker setup:
 
 .. image:: images/flocker_pretutorialwithhostname.svg
-   :alt: Diagram illustrating setup at Step 4.
+   :alt: In the server-side Flocker setup there are two servers, one of which has two Docker containers running; one container is a running a web application, the other has a Redis database with a volume.
 
 You'll need to download the last of the .yml files that we have provided:
 
@@ -222,4 +222,4 @@ You have now set up your first Flocker cluster and moved a Docker container with
 The following diagram illustrates how your server-side Flocker setup looks now:
 
 .. image:: images/flocker_posttutorialwithhostname.svg
-   :alt: Diagram illustrating the setup following the completion of the tutorial.
+   :alt: The server-side Flocker setup is be configured with the web application still running within a container on the first server, while the Redis server with a volume is now running on the second server.
