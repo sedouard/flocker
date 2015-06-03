@@ -32,6 +32,8 @@ Alpha
 Flocker terms
 =============
 
+.. Add an architecture diagram to make this all clearer. See FLOC-2076
+
 .. _api-definition:
 
 Flocker API
