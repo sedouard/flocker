@@ -7,25 +7,27 @@ Glossary
 .. contents::
   :local:
 
-Flocker release types
-=====================
+Flocker release status
+======================
 
-.. note:: All Flocker documentation will refer the Production ready product, unless tagged Alpha or Beta.
+.. note:: All Flocker documentation will refer the :term:`Production ready` product, unless tagged :term:`Alpha` or :term:`Beta`.
 
-.. _alpha-definition:
+.. glossary::
 
-Alpha
-   This product or feature is a proof-of-concept; expect API instability; lack of security; product instability.
+.. _production-ready-definition:
+
+Production ready
+   This product or feature is suitable for production use; expect API stability between versions; robust security; product stability for all supported uses.
 
 .. _beta-definition:
 
 Beta
    This product or feature is approaching readiness; expect minor API instability between versions; incomplete security; product stability for most common uses.
 
-.. _production-ready-definition:
+.. _alpha-definition:
 
-Production ready
-   This product or feature is suitable for production use; expect API stability between versions; robust security; product stability for all supported uses.
+Alpha
+   This product or feature is a proof-of-concept; expect API instability; lack of security; product instability.
 
 Flocker terms
 =============
@@ -39,7 +41,7 @@ Flocker API
 
 Flocker CLI
   Also known as the Flocker client.
-  This is a tool for controlling Flocker directly via the command line. It interfaces with the Flocker API.
+  This is a tool for controlling Flocker directly via the command line. It interacts with the Flocker API.
 
 .. _container-agent-definition:
 
@@ -50,17 +52,18 @@ Flocker Container Agent
 .. _control-service-definition:
 
 Flocker Control Service
-  This service stores the configuration and state of the cluster. The Flocker Control Service can be deployed on a dedicated host or on one of the cluster nodes.
+  This service stores the configuration and state of the cluster.
+  The Flocker Control Service can be deployed on a dedicated node or on one of the cluster nodes.
   The Flocker Control Service manages the Flocker ZFS Agent and the Flocker Container Agent, which in turn implement the changes to the configuration and state of the cluster.
 
 .. _flocker-cli-definition:
 
-The :code:`flocker-cli` package
+The `flocker-cli` package
   An operating system package which will install the Flocker client on a computer which is running a Linux operating system.
 
 .. _flocker-node-definition:
 
-The :code:`flocker-node` package
+The `flocker-node` package
   An operating system package which will install the Flocker ZFS Agent and the Flocker Container Agent on a node which is running a Linux operating system.
 
 .. _zfs-agent-definition:
@@ -74,12 +77,14 @@ Other terms
 .. _container-definition:
 
 Container
-   A virtual environment comprising an application and its dependencies. It isolates processes on the host operating system and uses the host kernel.
+   A virtual environment comprising an application and its dependencies.
+   It isolates processes on the host operating system and uses the host kernel.
 
 .. _client-definition:
 
 Client
-   A tool that controls the deployment and management of a container or group of containers, their contents and other attributes. For Flocker this is command line tool, often run locally.
+   A tool that controls the deployment and management of a container or group of containers, their contents and other attributes.
+   For Flocker this is command line tool, often run locally.
 
 .. _cluster-definition:
 
