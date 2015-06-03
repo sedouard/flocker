@@ -1,18 +1,18 @@
 .. _glossary:
 
+.. glossary::
+
 ========
 Glossary
 ========
 
 .. contents::
   :local:
-  
-.. glossary::  
 
 Feature release status
 ======================
 
-.. note:: All Flocker documentation will refer the :term:`Production ready` product, unless tagged :term:`Alpha` or :term:`Beta`.
+.. note:: All Flocker documentation will refer the Production ready product, unless tagged Alpha or Beta.
 
 .. _production-ready-definition:
 
