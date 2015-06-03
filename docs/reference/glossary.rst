@@ -6,13 +6,13 @@ Glossary
 
 .. contents::
   :local:
+  
+.. glossary::  
 
-Flocker release status
+Feature release status
 ======================
 
 .. note:: All Flocker documentation will refer the :term:`Production ready` product, unless tagged :term:`Alpha` or :term:`Beta`.
-
-.. glossary::
 
 .. _production-ready-definition:
 
@@ -40,7 +40,6 @@ Flocker API
 .. _cli-definition:
 
 Flocker CLI
-  Also known as the Flocker client.
   This is a tool for controlling Flocker directly via the command line. It interacts with the Flocker API.
 
 .. _container-agent-definition:
@@ -55,11 +54,12 @@ Flocker Control Service
   This service stores the configuration and state of the cluster.
   The Flocker Control Service can be deployed on a dedicated node or on one of the cluster nodes.
   The Flocker Control Service manages the Flocker ZFS Agent and the Flocker Container Agent, which in turn implement the changes to the configuration and state of the cluster.
+  For more information, see :ref:`architecture`.
 
 .. _flocker-cli-definition:
 
 The `flocker-cli` package
-  An operating system package which will install the Flocker client on a computer which is running a Linux operating system.
+  An operating system package which will install the Flocker client on a computer which is running a Linux operating system or OS X.
 
 .. _flocker-node-definition:
 
@@ -77,7 +77,7 @@ Other terms
 .. _container-definition:
 
 Container
-   A virtual environment comprising an application and its dependencies.
+   A Docker container - a virtual environment consisting of an application and its dependencies.
    It isolates processes on the host operating system and uses the host kernel.
 
 .. _client-definition:
@@ -89,14 +89,14 @@ Client
 .. _cluster-definition:
 
 Cluster
-   A system of connected containers.
+   A system of connected nodes.
 
 .. _migrate-definition:
 
 Migrate
-   To move a volume, container, or cluster (or part of a cluster) to another node.
+   To move a volume or container to another node.
 
 .. _node-definition:
 
 Node
-   A terminal in a network, either a physical or virtual machine.
+   Either a physical or virtual machine within a network.
