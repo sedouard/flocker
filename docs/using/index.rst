@@ -21,7 +21,7 @@ This Getting Started guide will walk you step-by-step through installing Flocker
    security
    config/index
    administering/index
-   Tutorial: Try Flocker <tutorial/tryflocker>
+   tutorial/movingvolume
    tutorial/index  
    examples/apps
    examples/features
