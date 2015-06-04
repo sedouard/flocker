@@ -39,6 +39,7 @@ Contents
 
 .. contents:: 
 	:local:
+	:backlinks: none
 	:depth: 2
 	
 Overview
