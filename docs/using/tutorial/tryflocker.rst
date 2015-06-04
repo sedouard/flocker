@@ -95,9 +95,9 @@ For the next step in this tutorial you now need two instances of Flocker, each o
 Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
 To install Flocker (plus dependencies) on the hosts, run the following command and Vagrant will create the environments you need:
 
-.. prompt:: bash [you@laptop:~$]
+.. version-code-block:: console
 
-   curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \    vagrant up && \
+   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \    vagrant up && \
    [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
    ssh-add ~/.vagrant.d/insecure_private_key
 
@@ -128,10 +128,10 @@ One is a Python web application and the other is Redis server, which stores its 
 
 Download the first 2 .yml files that we have provided:
 
-.. prompt:: bash [you@laptop:~$]
+.. version-code-block:: console
 
-	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
-	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
+	you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
+	you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
 
 .. note:: There are 3 .yml files to download. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'.
 
@@ -179,9 +179,9 @@ The diagram below illustrates your current server-side Flocker setup:
 
 You'll need to download the last of the .yml files that we have provided:
 
-.. prompt:: bash [you@laptop:~$]
+.. version-code-block:: console
 
-	curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
+	you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
 
 To move the container with the Redis server along with its data volume, use the deployment-node2.yml file:
 
