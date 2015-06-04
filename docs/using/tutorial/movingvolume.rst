@@ -48,14 +48,14 @@ Overview
 You will be controlling your Flocker cluster via the CLI you've installed locally.
 The following diagram illustrates the initial server-side Flocker setup that you will control via the CLI.
 
-.. image:: images/try-flocker-tutorial-initial-setup.svg
+.. image:: images/flocker-tutorial-initial-setup.svg
    :width: 60 %
    :alt: In the initial server-side Flocker setup there are two servers, one of which has two Docker containers running; one container is a running a web application, the other has a Redis database with a volume.
    :align: center
 
 The following diagram illustrates how the server-side Flocker setup will be configured at the end of the tutorial:
 
-.. image:: images/try-flocker-tutorial-final-setup.svg
+.. image:: images/flocker-tutorial-final-setup.svg
    :width: 60 %
    :alt: Following the completion of this tutorial the server-side Flocker setup will be configured with the web application still running within a container on the first server, while the Redis server with a volume is running on the second server.
    :align: center
@@ -175,7 +175,7 @@ Step 4: Migrating a container to the second host
 
 The diagram below illustrates your current server-side Flocker setup:
 
-.. image:: images/try-flocker-tutorial-initial-setup.svg
+.. image:: images/flocker-tutorial-initial-setup.svg
    :width: 60 %
    :alt: In the server-side Flocker setup there are two servers, one of which has two Docker containers running; one container is a running a web application, the other has a Redis database with a volume.
    :align: center
@@ -196,7 +196,7 @@ Run the following:
 .. prompt:: bash [you@laptop:~$]
 
 	flocker-deploy 172.16.255.250 deployment-node2.yml fig.yml
-	
+		
 The container on the Redis server and its volume have now both been moved to the second host.
 Flocker has maintained its link to the web application on the first host.
 
@@ -224,7 +224,7 @@ You have now set up your first Flocker cluster and moved a Docker container with
 
 The following diagram illustrates how your server-side Flocker setup looks now:
 
-.. image:: images/try-flocker-tutorial-final-setup.svg
+.. image:: images/flocker-tutorial-final-setup.svg
    :width: 60 %
    :alt: The server-side Flocker setup is be configured with the web application still running within a container on the first server, while the Redis server with a volume is now running on the second server.
    :align: center
