@@ -1,8 +1,8 @@
-.. _tryflocker:
+.. _tutorial-moving-a-data-volume:
 
-===========
-Try Flocker
-===========
+==============================
+Tutorial: Moving a Data Volume
+==============================
 
 In this tutorial (30 minutes)
 -----------------------------
