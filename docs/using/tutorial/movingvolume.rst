@@ -27,7 +27,8 @@ Make sure you have **one** of the following on your machine:
 2. Two hosts for two instances of Flocker.
 The options are:
 
-- Two Virtual Machines (VMs) on your local machine. For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
+- Two Virtual Machines (VMs) on your local machine.
+  For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
 - AWS or Rackspace (you will need an account with root access).
 - Physical hosts with a supported operating system.
 - Any combination of the above.
@@ -41,7 +42,7 @@ Contents
 	:local:
 	:backlinks: none
 	:depth: 2
-	
+
 Overview
 ^^^^^^^^
 
@@ -62,7 +63,7 @@ The following diagram illustrates how the server-side Flocker setup will be conf
 
 Flocker manages the data migration and the link between the two containers.
 
-.. To find out more about how Flocker manages migration of containers with volumes, see *add link here* 
+.. To find out more about how Flocker manages migration of containers with volumes, see *add link here*
 
 Step 1: Installing the Flocker client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -85,7 +86,7 @@ To test your installation, run the following to check that you have the Flocker 
 .. prompt:: bash [you@laptop:~$]
 
    flocker-deploy --version
-   
+
 Successful installation will display the version of Flocker.
 
 Step 2: Installing Flocker on your hosts
@@ -164,10 +165,10 @@ Run the following from within the :file:`/vagrant-flocker` folder to check that 
 .. prompt:: bash [you@laptop:~$]
    
    cd vagrant-flocker
-   vagrant ssh node1 -c "docker ps" 
-     
+   vagrant ssh node1 -c "docker ps"
+
 You should see the Redis server container in the output from Docker.
-   
+
 If you are running on AWS, manually SSH onto the first node and run :code:`docker ps` to see the same output.
 
 Step 4: Migrating a container to the second host
@@ -196,7 +197,7 @@ Run the following:
 .. prompt:: bash [you@laptop:~$]
 
 	flocker-deploy 172.16.255.250 deployment-node2.yml fig.yml
-		
+
 The container on the Redis server and its volume have now both been moved to the second host.
 Flocker has maintained its link to the web application on the first host.
 
