@@ -101,17 +101,13 @@ To install Flocker (plus dependencies) on the hosts, run the following command a
 
 .. version-code-block:: console
 
-   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \    vagrant up && \
+   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \
+   curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/cluster.crt && \
+   curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/user.crt && \
+   curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/user.key && \
+   vagrant up && \
    [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
    ssh-add ~/.vagrant.d/insecure_private_key
-
-To test your installation, run the following to check that you have the Flocker client installed correctly:
-
-.. prompt:: bash [you@laptop:~$]
- 
-	vagrant ssh node1 -c "flocker-reportstate --version"
-
-Successful installation will display the version of Flocker, and confirm the closure of the connection.
 
 Option B: Installing Flocker on AWS or Rackspace
 ************************************************
@@ -155,7 +151,7 @@ Secondly, install the web application and server on the first host:
 
 .. prompt:: bash [you@laptop:~$]
 
-	flocker-deploy http://172.16.255.250/ deployment-node1.yml fig.yml
+	flocker-deploy 172.16.255.250 deployment-node1.yml fig.yml
 
 Visit http://172.16.255.250/ (or the IP of the first host that you are using). You will see the visit count displayed.
 
@@ -198,7 +194,7 @@ Run the following:
 
 .. prompt:: bash [you@laptop:~$]
 
-	flocker-deploy http://172.16.255.250/ deployment-node2.yml fig.yml
+	flocker-deploy 172.16.255.250 deployment-node2.yml fig.yml
 	
 The container on the Redis server and its volume have now both been moved to the second host.
 Flocker has maintained its link to the web application on the first host.
