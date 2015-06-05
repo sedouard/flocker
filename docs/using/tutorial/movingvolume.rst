@@ -116,7 +116,7 @@ Option B: Installing Flocker on AWS or Rackspace
 
 The two instances of Flocker each run on a separate host.
 Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
-To install Flocker (plus dependencies), follow the links to the direct instructions:
+To install Flocker follow the links to the direct instructions:
 
 - :ref:`AWS install instructions <aws-install>`
 - :ref:`Rackspace install instructions <rackspace-install>`
