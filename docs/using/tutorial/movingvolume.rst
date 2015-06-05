@@ -1,5 +1,3 @@
-.. _tutorial-moving-a-data-volume:
-
 ==============================
 Tutorial: Moving a Data Volume
 ==============================
