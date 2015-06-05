@@ -93,25 +93,26 @@ To install Flocker on the nodes, run the following command and Vagrant will crea
 Deploying an app on the first host
 ==================================
 
-You will now have the Flocker client installed on your local machine and two instances of Flocker, each on a different host.
-Now you will create two Docker containers on one of the hosts.
+You will now have the client installed on your local machine, and two instances of Flocker, each on a different node.
+Firstly, you will create two Docker containers on one of the hosts.
 One is a Python web application and the other is Redis server, which stores its data on a volume.
 
-Download the first 2 .yml files that we have provided:
+Download the following .yml files:
 
 .. version-code-block:: console
 
 	you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
 	you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
+    you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
 
-.. note:: There are 3 .yml files to download. These contain the application and deployment configuration. You can edit these files if you need to change the IP addresses to match your hosts'.
+.. note:: You can edit these files if you need to change the IP addresses to match your hosts.
 
-The ``docker-compose.yml`` file describes your distributed application (note, Docker Compose was formerly known as Fig):
+The :file:`docker-compose.yml` file describes your distributed application (note, :file:`docker-compose.yml` was formerly known as :file:`fig.yml`):
 
     .. literalinclude:: docker-compose.yml
        :language: yaml
 
-The ``deployment-node1.yml`` file describes which containers to deploy, and where:
+The :file:`deployment-node1.yml` file describes which containers to deploy, and where:
 
     .. literalinclude:: deployment-node1.yml
        :language: yaml
@@ -150,13 +151,7 @@ The diagram below illustrates your current server-side Flocker setup:
    :alt: In the server-side Flocker setup there are two servers, one of which has two Docker containers running; one container is a running a web application, the other has a Redis database with a volume.
    :align: center
 
-You now need to download the last of the .yml files that we have provided:
-
-.. version-code-block:: console
-
-	you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
-
-To move the container with the Redis server along with its data volume, use the deployment-node2.yml file:
+To move the container with the Redis server along with its data volume, use the :file:`deployment-node2.yml` file:
 
     .. literalinclude:: deployment-node2.yml
        :language: yaml
