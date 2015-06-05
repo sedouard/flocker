@@ -59,13 +59,13 @@ OS X
 ----
 
 .. task:: test_homebrew flocker-|latest-installable|
-   :prompt: you@laptop:~$
+   :prompt: [you@laptop:~$]
 
 Ubuntu 14.04
 ------------
 
 .. task:: install_cli ubuntu-14.04
-   :prompt: you@laptop:~$
+   :prompt: [you@laptop:~$]
 
 To test your installation, run the following to check that you have the Flocker client installed correctly:
 
@@ -82,7 +82,7 @@ To install Flocker on the nodes, run the following command and Vagrant will crea
 
 .. version-code-block:: console
 
-   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \
+   [you@laptop:~$] curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \
    curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/cluster.crt && \
    curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/user.crt && \
    curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/user.key && \
@@ -97,17 +97,17 @@ You will now have the client installed on your local machine, and two instances 
 Firstly, you will create two Docker containers on one of the hosts.
 One is a Python web application and the other is Redis server, which stores its data on a volume.
 
-Download the following .yml files:
+Download the following :file:`.yml` files:
 
 .. version-code-block:: console
 
-	you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
-	you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
-    you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
+   [you@laptop:~$] curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
+   [you@laptop:~$] curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
+   [you@laptop:~$] curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
 
-.. note:: You can edit these files if you need to change the IP addresses to match your hosts.
+.. note:: You can edit these files if you need to change the IP addresses to match your nodes.
 
-The :file:`docker-compose.yml` file describes your distributed application (note, :file:`docker-compose.yml` was formerly known as :file:`fig.yml`):
+The :file:`docker-compose.yml` file describes your distributed application (:file:`docker-compose.yml` was formerly known as :file:`fig.yml`):
 
     .. literalinclude:: docker-compose.yml
        :language: yaml
@@ -116,8 +116,6 @@ The :file:`deployment-node1.yml` file describes which containers to deploy, and 
 
     .. literalinclude:: deployment-node1.yml
        :language: yaml
-
-.. note:: If you are using real servers on AWS, you need to change the IP addresses in the deployment file.
 
 Secondly, install the web application and server on the first host:
 
@@ -128,7 +126,7 @@ Secondly, install the web application and server on the first host:
 Visit http://172.16.255.250/ (or the IP of the first host that you are using). You will see the visit count displayed.
 
 Visit http://172.16.255.251/ (or the IP of the second host that you are using).
-You will see that the count persists because Flocker routes the traffic from either host named in the deployment file to the one that has the application.
+You will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
 
 Run the following from within the :file:`vagrant-flocker` folder to check that the Redis server container is running on the first host:
 
