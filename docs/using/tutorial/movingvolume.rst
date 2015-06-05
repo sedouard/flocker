@@ -19,7 +19,7 @@ You will need
 -------------
 
 1. Somewhere to install the Flocker client.
-Make sure you have **one** of the following on your machine:
+Make sure you have either of the following on your machine:
 
 - OS X with `Homebrew <http://brew.sh/>`_ installed.
 - Ubuntu 14.04.
@@ -31,7 +31,6 @@ The options are:
   For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
 - AWS or Rackspace (you will need an account with root access).
 - Physical hosts with a supported operating system.
-- Any combination of the above.
 
 .. note:: If you choose to use VMs on your local machine, you’ll need at least 4GB RAM.
 
@@ -63,7 +62,7 @@ The following diagram illustrates how the server-side Flocker setup will be conf
 
 Flocker manages the data migration and the link between the two containers.
 
-.. To find out more about how Flocker manages migration of containers with volumes, see *add link here*
+To find out more about how Flocker manages migration of containers with volumes, see :ref:`data-volumes`.
 
 Step 1: Installing the Flocker client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
