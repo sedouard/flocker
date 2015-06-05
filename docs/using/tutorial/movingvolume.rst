@@ -2,18 +2,13 @@
 Tutorial: Moving a Data Volume
 ==============================
 
+.. note:: This tutorial takes roughly 30 minutes, but because there are a few things to download, times might vary depending on the speed of your connection.
+
 You will use Flocker to migrate a Docker container with its data volume from one host to another.
 The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts.
 
 To begin the tutorial you will first install the Flocker client on your local machine, then install Flocker onto two hosts.
 You will then be ready to use Flocker to migrate a Docker container with a volume attached from one host to the other.
-
-.. contents:: 
-	:local:
-	:backlinks: none
-	:depth: 2
-
-.. note:: This tutorial takes roughly 30 minutes, but because there are a few things to download, times might vary depending on the speed of your connection.
 
 You will be controlling your Flocker cluster via the CLI you've installed locally.
 The following diagram illustrates the initial server-side Flocker setup that you will control via the CLI:
@@ -34,27 +29,25 @@ Flocker manages the data migration and the link between the two containers.
 
 To find out more about how Flocker manages migration of containers with volumes, see :ref:`data-volumes`.
 
+If you have any feedback or problems, you can :ref:`talk-to-us`.
+
+.. contents:: 
+	:local:
+	:backlinks: none
+	:depth: 2
+
 Before You Begin
 ================
 
 Requirements
 ------------
 
-1. Somewhere to install the Flocker client.
-Make sure you have either of the following on your machine:
+To replicate the steps demonstrated in this tutorial, you will need:
 
-- OS X with `Homebrew <http://brew.sh/>`_ installed.
-- Ubuntu 14.04.
-
-2. Two hosts for two instances of Flocker.
-The options are:
-
-- Two Virtual Machines (VMs) on your local machine.
-  For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
-- AWS or Rackspace (you need an account with root access).
-- Physical hosts with a supported operating system.
-
-.. note:: If you choose to use VMs on your local machine, you need at least 4GB RAM available.
+* Ubuntu 14.04 or OS X with `Homebrew <http://brew.sh/>`_ installed.
+* Two Virtual Machines (VMs) on your local machine.
+  For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant`_ and `VirtualBox`_ installed.
+* At least 4GB RAM available.
 
 Installing the Flocker client
 =============================
