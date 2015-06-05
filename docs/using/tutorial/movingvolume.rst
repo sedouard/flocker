@@ -49,8 +49,8 @@ To replicate the steps demonstrated in this tutorial, you will need:
   For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant`_ and `VirtualBox`_ installed.
 * At least 4GB RAM available.
 
-Installing the Flocker client
-=============================
+Installing the client
+=====================
 
 The Flocker client runs locally on your machine, and will control the two instances of Flocker located on the hosts.
 To install the Flocker client, run the following in your terminal:
