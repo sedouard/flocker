@@ -17,17 +17,17 @@ Feature release status
 .. _production-ready-definition:
 
 Production ready
-   This product or feature is suitable for production use; expect API stability between versions; robust security; product stability for all supported uses.
+   This product or feature is suitable for production use. You can expect API stability between versions, robust security, and product stability for all supported uses.
 
 .. _beta-definition:
 
 Beta
-   This product or feature is approaching readiness; expect minor API instability between versions; incomplete security; product stability for most common uses.
+   This product or feature is approaching readiness. You can expect minor API instability between versions, incomplete security, and product stability for most common uses.
 
 .. _alpha-definition:
 
 Alpha
-   This product or feature is a proof-of-concept; expect API instability; lack of security; product instability.
+   This product or feature is a proof-of-concept. You can expect API instability, lack of security, and product instability.
 
 Flocker terms
 =============
