@@ -151,14 +151,14 @@ Secondly, install the web application and server on the first host:
 
 .. prompt:: bash [you@laptop:~$]
 
-	flocker-deploy 172.16.255.250 deployment-node1.yml fig.yml
+	flocker-deploy 172.16.255.250 deployment-node1.yml docker-compose.yml
 
 Visit http://172.16.255.250/ (or the IP of the first host that you are using). You will see the visit count displayed.
 
 Visit http://172.16.255.251/ (or the IP of the second host that you are using).
 You will see that the count persists because Flocker routes the traffic from either host named in the deployment file to the one that has the application.
 
-Run the following from within the :file:`/vagrant-flocker` folder to check that the Redis server container is running on the first host:
+Run the following from within the :file:`vagrant-flocker` folder to check that the Redis server container is running on the first host:
 
 .. prompt:: bash [you@laptop:~$]
    
@@ -194,7 +194,7 @@ Run the following:
 
 .. prompt:: bash [you@laptop:~$]
 
-	flocker-deploy 172.16.255.250 deployment-node2.yml fig.yml
+	flocker-deploy 172.16.255.250 deployment-node2.yml docker-compose.yml
 
 The container on the Redis server and its volume have now both been moved to the second host.
 Flocker has maintained its link to the web application on the first host.
@@ -225,5 +225,5 @@ The following diagram illustrates how your server-side Flocker setup looks now:
 
 .. image:: images/flocker-tutorial-final-setup.svg
    :width: 60 %
-   :alt: The server-side Flocker setup is be configured with the web application still running within a container on the first server, while the Redis server with a volume is now running on the second server.
+   :alt: The web application is still running within a container on the first server, while the Redis server with a volume is now running on the second server.
    :align: center
