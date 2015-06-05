@@ -44,7 +44,7 @@ Requirements
 
 To replicate the steps demonstrated in this tutorial, you will need:
 
-* Ubuntu 14.04 or OS X with `Homebrew <http://brew.sh/>`_ installed.
+* Ubuntu 14.04 or OS X with `Homebrew`_ installed.
 * Two Virtual Machines (VMs) on your local machine.
   For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant`_ and `VirtualBox`_ installed.
 * At least 4GB RAM available.
@@ -169,3 +169,7 @@ The following diagram illustrates how your server-side Flocker setup looks now:
    :width: 60 %
    :alt: The web application is still running within a container on the first server, while the Redis server with a volume is now running on the second server.
    :align: center
+   
+.. _`Homebrew`: http://brew.sh/
+.. _`Vagrant`: https://docs.vagrantup.com/
+.. _`VirtualBox`: https://www.virtualbox.org/
