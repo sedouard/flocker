@@ -72,11 +72,13 @@ To install the Flocker client, run the following in your terminal:
 
 OS X
 ****
+
 .. task:: test_homebrew flocker-|latest-installable|
    :prompt: you@laptop:~$
 
 Ubuntu 14.04
 ************
+
 .. task:: install_cli ubuntu-14.04
    :prompt: you@laptop:~$
 
@@ -86,10 +88,9 @@ To test your installation, run the following to check that you have the Flocker 
 
    flocker-deploy --version
 
-Successful installation will display the version of Flocker.
-
 Step 2: Installing Flocker on your hosts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Option A: Installing Flocker on local VMs
 *****************************************
 
