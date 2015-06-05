@@ -59,17 +59,17 @@ OS X
 ----
 
 .. task:: test_homebrew flocker-|latest-installable|
-   :prompt: [you@laptop:~$]
+   :prompt: you@laptop:~$
 
 Ubuntu 14.04
 ------------
 
 .. task:: install_cli ubuntu-14.04
-   :prompt: [you@laptop:~$]
+   :prompt: you@laptop:~$
 
 To test your installation, run the following to check that you have the Flocker client installed correctly:
 
-.. prompt:: bash [you@laptop:~$]
+.. prompt:: bash you@laptop:~$
 
    flocker-deploy --version
 
@@ -82,7 +82,7 @@ To install Flocker on the nodes, run the following command and Vagrant will crea
 
 .. version-code-block:: console
 
-   [you@laptop:~$] curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \
+   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \
    curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/cluster.crt && \
    curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/user.crt && \
    curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/user.key && \
@@ -101,9 +101,9 @@ Download the following :file:`.yml` files:
 
 .. version-code-block:: console
 
-   [you@laptop:~$] curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
-   [you@laptop:~$] curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
-   [you@laptop:~$] curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
+   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
+   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
+   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
 
 .. note:: You can edit these files if you need to change the IP addresses to match your nodes.
 
@@ -119,7 +119,7 @@ The :file:`deployment-node1.yml` file describes which containers to deploy, and 
 
 Secondly, install the web application and server on the first host:
 
-.. prompt:: bash [you@laptop:~$]
+.. prompt:: bash you@laptop:~$
 
 	flocker-deploy 172.16.255.250 deployment-node1.yml docker-compose.yml
 
@@ -130,7 +130,7 @@ You will see that the count persists because Flocker routes the traffic from eit
 
 Run the following from within the :file:`vagrant-flocker` folder to check that the Redis server container is running on the first host:
 
-.. prompt:: bash [you@laptop:~$]
+.. prompt:: bash you@laptop:~$
    
    cd vagrant-flocker
    vagrant ssh node1 -c "docker ps"
@@ -156,7 +156,7 @@ To move the container with the Redis server along with its data volume, use the 
 
 Run the following:
 
-.. prompt:: bash [you@laptop:~$]
+.. prompt:: bash you@laptop:~$
 
 	flocker-deploy 172.16.255.250 deployment-node2.yml docker-compose.yml
 
@@ -171,7 +171,7 @@ You will see that the count still persists, even though the container with the v
 
 Run the following from within the vagrant-flocker folder to check that the Redis server container is running on the first host:
 
-.. prompt:: bash [you@laptop:~$]
+.. prompt:: bash you@laptop:~$
 
    cd vagrant-flocker
    vagrant ssh node2 -c "docker ps"
