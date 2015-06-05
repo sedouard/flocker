@@ -32,7 +32,7 @@ The options are:
 - AWS or Rackspace (you will need an account with root access).
 - Physical hosts with a supported operating system.
 
-.. note:: If you choose to use VMs on your local machine, you’ll need at least 4GB RAM.
+.. note:: If you choose to use VMs on your local machine, you’ll need at least 4GB RAM available.
 
 Contents
 --------
