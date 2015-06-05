@@ -158,8 +158,8 @@ You will see the visit count is still persisted.
 Visit http://172.16.255.251/ (or the IP of the second host that you are using).
 You will see that the count still persists, even though the container with the volume has moved between hosts.
 
-Success!
-========
+Result
+======
 
 You have now set up your first Flocker cluster and moved a Docker container with its volume while persisting its link to a web app on another server.
 
@@ -169,7 +169,9 @@ The following diagram illustrates how your server-side Flocker setup looks now:
    :width: 60 %
    :alt: The web application is still running within a container on the first server, while the Redis server with a volume is now running on the second server.
    :align: center
-   
+
+The next tutorial is :ref:`Deploying and Migrating MongoDB <tutmongo>`, which teaches you how to use Flocker's container, network, and volume orchestration functionality.
+
 .. _`Homebrew`: http://brew.sh/
 .. _`Vagrant`: https://docs.vagrantup.com/
 .. _`VirtualBox`: https://www.virtualbox.org/
