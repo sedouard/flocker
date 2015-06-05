@@ -73,7 +73,7 @@ To test your installation, run the following to check that you have the Flocker 
 
    flocker-deploy --version
 
-Installing Flocker on local VMs
+Installing Flocker on Local VMs
 ===============================
 
 Install two instances of Flocker, each on a separate host.
@@ -90,7 +90,7 @@ To install Flocker on the hosts, run the following command and Vagrant will crea
    [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
    ssh-add ~/.vagrant.d/insecure_private_key
 
-Deploying an application on the first host
+Deploying an Application on the First Host
 ==========================================
 
 You will now have the client installed on your local machine, and two instances of Flocker, each on a different host.
@@ -128,7 +128,7 @@ Visit http://172.16.255.250/ (or the IP of the first host that you are using). Y
 Visit http://172.16.255.251/ (or the IP of the second host that you are using).
 You will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
 
-Migrating a container to the second host
+Migrating a Container to the Second Host
 ========================================
 
 The diagram below illustrates your current server-side Flocker setup:
