@@ -1,17 +1,6 @@
-========
-Glossary
-========
-
-.. contents::
-  :local:
-  :backlinks: none
-
-Feature release status
-======================
+.. glossary::
 
 .. note:: All Flocker documentation will refer the :term:`Production ready` product, unless tagged :term:`Alpha` or :term:`Beta`.
-
-.. glossary::
 
 Production ready
    This product or feature is suitable for production use. You can expect API stability between versions, robust security, and product stability for all supported uses.
@@ -21,13 +10,6 @@ Beta
 
 Alpha
    This product or feature is a proof-of-concept. You can expect API instability, lack of security, and product instability.
-
-Flocker terms
-=============
-
-.. Add an architecture diagram to make this all clearer. See FLOC-2076
-
-.. glossary::
 
 Flocker API
   A collection of RESTful API endpoints that allow you to configure a Flocker cluster programmatically with the tool and language of your choice.
@@ -53,11 +35,6 @@ The `flocker-node` package
 
 Flocker ZFS Agent
   An agent which manages Flocker datasets on ZFS filesystems on a node.
-
-Other terms
-===========
-
-.. glossary::
 
 Container
    A Docker container - a virtual environment consisting of an application and its dependencies.
