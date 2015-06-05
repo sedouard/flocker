@@ -49,7 +49,7 @@ To replicate the steps demonstrated in this tutorial, you will need:
   For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant`_ and `VirtualBox`_ installed.
 * At least 4GB RAM available.
 
-Installing the client
+Installing the Client
 =====================
 
 The Flocker client runs locally on your machine, and will control the two instances of Flocker located on the hosts.
@@ -76,9 +76,9 @@ To test your installation, run the following to check that you have the Flocker 
 Installing Flocker on local VMs
 ===============================
 
-Install two instances of Flocker, each on a separate node.
+Install two instances of Flocker, each on a separate host.
 Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
-To install Flocker on the nodes, run the following command and Vagrant will create the environments you need:
+To install Flocker on the hosts, run the following command and Vagrant will create the environments you need:
 
 .. version-code-block:: console
 
@@ -93,7 +93,7 @@ To install Flocker on the nodes, run the following command and Vagrant will crea
 Deploying an app on the first host
 ==================================
 
-You will now have the client installed on your local machine, and two instances of Flocker, each on a different node.
+You will now have the client installed on your local machine, and two instances of Flocker, each on a different host.
 Firstly, you will create two Docker containers on one of the hosts.
 One is a Python web application and the other is Redis server, which stores its data on a volume.
 
@@ -105,7 +105,7 @@ Download the following :file:`.yml` files:
    you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
    you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
 
-.. note:: You can edit these files if you need to change the IP addresses to match your nodes.
+.. note:: You can edit these files if you need to change the IP addresses to match your hosts.
 
 The :file:`docker-compose.yml` file describes your distributed application (:file:`docker-compose.yml` was formerly known as :file:`fig.yml`):
 
