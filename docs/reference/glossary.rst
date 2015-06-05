@@ -1,6 +1,10 @@
-.. glossary::
+========
+Glossary
+========
 
 .. note:: All Flocker documentation will refer the :term:`Production ready` product, unless tagged :term:`Alpha` or :term:`Beta`.
+
+.. glossary::
 
 Production ready
    This product or feature is suitable for production use. You can expect API stability between versions, robust security, and product stability for all supported uses.
