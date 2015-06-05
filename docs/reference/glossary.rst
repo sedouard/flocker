@@ -1,5 +1,3 @@
-.. glossary::
-
 ========
 Glossary
 ========
@@ -12,6 +10,8 @@ Feature release status
 ======================
 
 .. note:: All Flocker documentation will refer the :term:`Production ready` product, unless tagged :term:`Alpha` or :term:`Beta`.
+
+.. glossary::
 
 Production ready
    This product or feature is suitable for production use. You can expect API stability between versions, robust security, and product stability for all supported uses.
@@ -26,6 +26,8 @@ Flocker terms
 =============
 
 .. Add an architecture diagram to make this all clearer. See FLOC-2076
+
+.. glossary::
 
 Flocker API
   A collection of RESTful API endpoints that allow you to configure a Flocker cluster programmatically with the tool and language of your choice.
@@ -54,6 +56,8 @@ Flocker ZFS Agent
 
 Other terms
 ===========
+
+.. glossary::
 
 Container
    A Docker container - a virtual environment consisting of an application and its dependencies.
