@@ -15,7 +15,26 @@ You will then be ready to use Flocker to migrate a Docker container with a volum
 
 .. note:: This tutorial takes roughly 30 minutes, but because there are a few things to download, times might vary depending on the speed of your connection.
 
-Before you begin
+You will be controlling your Flocker cluster via the CLI you've installed locally.
+The following diagram illustrates the initial server-side Flocker setup that you will control via the CLI:
+
+.. image:: images/flocker-tutorial-initial-setup.svg
+   :width: 60 %
+   :alt: In the initial server-side Flocker setup there are two servers, one of which has two Docker containers running; one container is a running a web application, the other has a Redis database with a volume.
+   :align: center
+
+The following diagram illustrates how the server-side Flocker setup will be configured at the end of the tutorial:
+
+.. image:: images/flocker-tutorial-final-setup.svg
+   :width: 60 %
+   :alt: Following the completion of this tutorial the server-side Flocker setup will be configured with the web application still running within a container on the first server, while the Redis server with a volume is running on the second server.
+   :align: center
+
+Flocker manages the data migration and the link between the two containers.
+
+To find out more about how Flocker manages migration of containers with volumes, see :ref:`data-volumes`.
+
+Before You Begin
 ================
 
 Requirements
@@ -37,30 +56,8 @@ The options are:
 
 .. note:: If you choose to use VMs on your local machine, you need at least 4GB RAM available.
 
-Overview
-========
-
-You will be controlling your Flocker cluster via the CLI you've installed locally.
-The following diagram illustrates the initial server-side Flocker setup that you will control via the CLI:
-
-.. image:: images/flocker-tutorial-initial-setup.svg
-   :width: 60 %
-   :alt: In the initial server-side Flocker setup there are two servers, one of which has two Docker containers running; one container is a running a web application, the other has a Redis database with a volume.
-   :align: center
-
-The following diagram illustrates how the server-side Flocker setup will be configured at the end of the tutorial:
-
-.. image:: images/flocker-tutorial-final-setup.svg
-   :width: 60 %
-   :alt: Following the completion of this tutorial the server-side Flocker setup will be configured with the web application still running within a container on the first server, while the Redis server with a volume is running on the second server.
-   :align: center
-
-Flocker manages the data migration and the link between the two containers.
-
-To find out more about how Flocker manages migration of containers with volumes, see :ref:`data-volumes`.
-
-Step 1: Installing the Flocker client
-=====================================
+Installing the Flocker client
+=============================
 
 The Flocker client runs locally on your machine, and will control the two instances of Flocker located on the hosts.
 To install the Flocker client, run the following in your terminal:
