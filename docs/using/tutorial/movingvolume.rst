@@ -73,18 +73,12 @@ To test your installation, run the following to check that you have the Flocker 
 
    flocker-deploy --version
 
-Step 2: Installing Flocker on your hosts
-========================================
+Installing Flocker on local VMs
+===============================
 
-Option A: Installing Flocker on local VMs
------------------------------------------
-
-.. note:: You must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_  installed to create the VMs and start the containers for this tutorial.
-
-In Step 1 you installed the Flocker client on your local machine.
-For the next step in this tutorial you need two instances of Flocker, each on a separate host.
+Install two instances of Flocker, each on a separate node.
 Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
-To install Flocker (plus dependencies) on the hosts, run the following command and Vagrant will create the environments you need:
+To install Flocker on the nodes, run the following command and Vagrant will create the environments you need:
 
 .. version-code-block:: console
 
@@ -96,18 +90,8 @@ To install Flocker (plus dependencies) on the hosts, run the following command a
    [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
    ssh-add ~/.vagrant.d/insecure_private_key
 
-Option B: Installing Flocker on AWS or Rackspace
-------------------------------------------------
-
-The two instances of Flocker each run on a separate host.
-Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
-To install Flocker follow the links to the direct instructions:
-
-- :ref:`AWS install instructions <aws-install>`
-- :ref:`Rackspace install instructions <rackspace-install>`
-
-Step 3: Deploying an app on the first host
-==========================================
+Deploying an app on the first host
+==================================
 
 You will now have the Flocker client installed on your local machine and two instances of Flocker, each on a different host.
 Now you will create two Docker containers on one of the hosts.
