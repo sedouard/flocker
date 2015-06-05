@@ -2,19 +2,24 @@
 Tutorial: Moving a Data Volume
 ==============================
 
-In this tutorial (30 minutes)
------------------------------
-
 You will use Flocker to migrate a Docker container with its data volume from one host to another.
 The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts.
 
 To begin the tutorial you will first install the Flocker client on your local machine, then install Flocker onto two hosts.
 You will then be ready to use Flocker to migrate a Docker container with a volume attached from one host to the other.
 
+.. contents:: 
+	:local:
+	:backlinks: none
+	:depth: 2
+
 .. note:: This tutorial takes roughly 30 minutes, but because there are a few things to download, times might vary depending on the speed of your connection.
 
-You need
---------
+Before you begin
+================
+
+Requirements
+------------
 
 1. Somewhere to install the Flocker client.
 Make sure you have either of the following on your machine:
@@ -32,16 +37,8 @@ The options are:
 
 .. note:: If you choose to use VMs on your local machine, you need at least 4GB RAM available.
 
-Contents
---------
-
-.. contents:: 
-	:local:
-	:backlinks: none
-	:depth: 2
-
 Overview
-^^^^^^^^
+========
 
 You will be controlling your Flocker cluster via the CLI you've installed locally.
 The following diagram illustrates the initial server-side Flocker setup that you will control via the CLI:
@@ -63,19 +60,19 @@ Flocker manages the data migration and the link between the two containers.
 To find out more about how Flocker manages migration of containers with volumes, see :ref:`data-volumes`.
 
 Step 1: Installing the Flocker client
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=====================================
 
 The Flocker client runs locally on your machine, and will control the two instances of Flocker located on the hosts.
 To install the Flocker client, run the following in your terminal:
 
 OS X
-****
+----
 
 .. task:: test_homebrew flocker-|latest-installable|
    :prompt: you@laptop:~$
 
 Ubuntu 14.04
-************
+------------
 
 .. task:: install_cli ubuntu-14.04
    :prompt: you@laptop:~$
@@ -87,10 +84,10 @@ To test your installation, run the following to check that you have the Flocker 
    flocker-deploy --version
 
 Step 2: Installing Flocker on your hosts
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+========================================
 
 Option A: Installing Flocker on local VMs
-*****************************************
+-----------------------------------------
 
 .. note:: You must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_  installed to create the VMs and start the containers for this tutorial.
 
@@ -110,7 +107,7 @@ To install Flocker (plus dependencies) on the hosts, run the following command a
    ssh-add ~/.vagrant.d/insecure_private_key
 
 Option B: Installing Flocker on AWS or Rackspace
-************************************************
+------------------------------------------------
 
 The two instances of Flocker each run on a separate host.
 Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
@@ -120,7 +117,7 @@ To install Flocker follow the links to the direct instructions:
 - :ref:`Rackspace install instructions <rackspace-install>`
 
 Step 3: Deploying an app on the first host
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==========================================
 
 You will now have the Flocker client installed on your local machine and two instances of Flocker, each on a different host.
 Now you will create two Docker containers on one of the hosts.
@@ -170,7 +167,7 @@ You should see the Redis server container in the output from Docker.
 If you are running on AWS, manually SSH onto the first node and run :code:`docker ps` to see the same output.
 
 Step 4: Migrating a container to the second host
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+================================================
 
 The diagram below illustrates your current server-side Flocker setup:
 
@@ -217,7 +214,7 @@ You should see the Redis server container in the output from Docker.
 If you are running on AWS, manually SSH onto the second node and run :code:`docker ps` to see the same output.
 
 Success!
-^^^^^^^^
+========
 
 You have now set up your first Flocker cluster and moved a Docker container with its volume while persisting its link to a web app on another server.
 
