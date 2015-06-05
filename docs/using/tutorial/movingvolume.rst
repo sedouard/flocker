@@ -90,8 +90,8 @@ To install Flocker on the hosts, run the following command and Vagrant will crea
    [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
    ssh-add ~/.vagrant.d/insecure_private_key
 
-Deploying an app on the first host
-==================================
+Deploying an application on the first host
+==========================================
 
 You will now have the client installed on your local machine, and two instances of Flocker, each on a different host.
 Firstly, you will create two Docker containers on one of the hosts.
