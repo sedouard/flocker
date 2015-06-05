@@ -15,8 +15,8 @@ You will then be ready to use Flocker to migrate a Docker container with a volum
 
 .. note:: This tutorial takes roughly 30 minutes, but because there are a few things to download, times might vary depending on the speed of your connection.
 
-You will need
--------------
+You need
+--------
 
 1. Somewhere to install the Flocker client.
 Make sure you have either of the following on your machine:
@@ -29,10 +29,10 @@ The options are:
 
 - Two Virtual Machines (VMs) on your local machine.
   For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_ installed.
-- AWS or Rackspace (you will need an account with root access).
+- AWS or Rackspace (you need an account with root access).
 - Physical hosts with a supported operating system.
 
-.. note:: If you choose to use VMs on your local machine, you’ll need at least 4GB RAM available.
+.. note:: If you choose to use VMs on your local machine, you need at least 4GB RAM available.
 
 Contents
 --------
@@ -97,7 +97,7 @@ Option A: Installing Flocker on local VMs
 .. note:: You must have `Vagrant <https://www.vagrantup.com/>`_ and `VirtualBox <https://www.virtualbox.org/>`_  installed to create the VMs and start the containers for this tutorial.
 
 In Step 1 you installed the Flocker client on your local machine.
-For the next step in this tutorial you now need two instances of Flocker, each on a separate host.
+For the next step in this tutorial you need two instances of Flocker, each on a separate host.
 Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
 To install Flocker (plus dependencies) on the hosts, run the following command and Vagrant will create the environments you need:
 
@@ -147,7 +147,7 @@ The ``deployment-node1.yml`` file describes which containers to deploy, and wher
     .. literalinclude:: deployment-node1.yml
        :language: yaml
 
-.. note:: If you are using real servers on AWS, you'll need to change the IP addresses in the deployment file.
+.. note:: If you are using real servers on AWS, you need to change the IP addresses in the deployment file.
 
 Secondly, install the web application and server on the first host:
 
@@ -181,7 +181,7 @@ The diagram below illustrates your current server-side Flocker setup:
    :alt: In the server-side Flocker setup there are two servers, one of which has two Docker containers running; one container is a running a web application, the other has a Redis database with a volume.
    :align: center
 
-You'll need to download the last of the .yml files that we have provided:
+You now need to download the last of the .yml files that we have provided:
 
 .. version-code-block:: console
 
