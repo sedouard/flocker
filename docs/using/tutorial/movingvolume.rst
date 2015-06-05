@@ -170,7 +170,7 @@ The following diagram illustrates how your server-side Flocker setup looks now:
    :alt: The web application is still running within a container on the first server, while the Redis server with a volume is now running on the second server.
    :align: center
 
-The next tutorial is :ref:`Deploying and Migrating MongoDB <tutmongo>`, which teaches you how to use Flocker's container, network, and volume orchestration functionality.
+The next tutorial is :ref:`Deploying and Migrating MongoDB <tutmongo>`, which teaches you how to use Flocker's container, network, and volume orchestration functionality, based around the setup of a MongoDB service.
 
 .. _`Homebrew`: http://brew.sh/
 .. _`Vagrant`: https://docs.vagrantup.com/
