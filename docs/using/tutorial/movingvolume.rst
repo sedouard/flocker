@@ -44,7 +44,7 @@ Overview
 ^^^^^^^^
 
 You will be controlling your Flocker cluster via the CLI you've installed locally.
-The following diagram illustrates the initial server-side Flocker setup that you will control via the CLI.
+The following diagram illustrates the initial server-side Flocker setup that you will control via the CLI:
 
 .. image:: images/flocker-tutorial-initial-setup.svg
    :width: 60 %
