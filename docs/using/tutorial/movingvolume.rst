@@ -128,19 +128,8 @@ Visit http://172.16.255.250/ (or the IP of the first host that you are using). Y
 Visit http://172.16.255.251/ (or the IP of the second host that you are using).
 You will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
 
-Run the following from within the :file:`vagrant-flocker` folder to check that the Redis server container is running on the first host:
-
-.. prompt:: bash you@laptop:~$
-   
-   cd vagrant-flocker
-   vagrant ssh node1 -c "docker ps"
-
-You should see the Redis server container in the output from Docker.
-
-If you are running on AWS, manually SSH onto the first node and run :code:`docker ps` to see the same output.
-
-Step 4: Migrating a container to the second host
-================================================
+Migrating a container to the second host
+========================================
 
 The diagram below illustrates your current server-side Flocker setup:
 
@@ -168,17 +157,6 @@ You will see the visit count is still persisted.
 
 Visit http://172.16.255.251/ (or the IP of the second host that you are using).
 You will see that the count still persists, even though the container with the volume has moved between hosts.
-
-Run the following from within the vagrant-flocker folder to check that the Redis server container is running on the first host:
-
-.. prompt:: bash you@laptop:~$
-
-   cd vagrant-flocker
-   vagrant ssh node2 -c "docker ps"
-
-You should see the Redis server container in the output from Docker.
-
-If you are running on AWS, manually SSH onto the second node and run :code:`docker ps` to see the same output.
 
 Success!
 ========
