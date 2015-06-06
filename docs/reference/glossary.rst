@@ -8,7 +8,7 @@ Glossary
 
 .. We're not using the .. glossary:: admonition here, as we want to split the glossary terms into sections, which the tag does not support. If this ever changes, then we can add the tagging.
 
-Product features
+Product Features
 ================ 
 
 .. note:: All Flocker documentation will refer the `Production ready` product, unless tagged `Alpha` or `Beta`.
@@ -22,7 +22,7 @@ Beta
 Alpha
    This product or feature is a proof-of-concept. You can expect API instability, lack of security, and product instability.
 
-Flocker terms
+Flocker Terms
 =============
 
 Flocker API
@@ -50,7 +50,7 @@ The `flocker-node` package
 Flocker ZFS Agent
   An agent which manages Flocker datasets on ZFS filesystems on a node.
 
-Other terms
+Other Terms
 ===========
 
 .. XXX Add a diagram to make this clearer. See FLOC-2076
