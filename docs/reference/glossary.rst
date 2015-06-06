@@ -2,9 +2,16 @@
 Glossary
 ========
 
-.. note:: All Flocker documentation will refer the :term:`Production ready` product, unless tagged :term:`Alpha` or :term:`Beta`.
+.. contents::
+   :local:
+   :backlinks: none
 
-.. glossary::
+.. We're not using the .. glossary:: admonition here, as we want to split the glossary terms into sections, which the tag does not support. If this ever changes, then we can add the tagging.
+
+Product features
+================ 
+
+.. note:: All Flocker documentation will refer the `Production ready` product, unless tagged `Alpha` or `Beta`.
 
 Production ready
    This product or feature is suitable for production use. You can expect API stability between versions, robust security, and product stability for all supported uses.
@@ -15,11 +22,14 @@ Beta
 Alpha
    This product or feature is a proof-of-concept. You can expect API instability, lack of security, and product instability.
 
+Flocker terms
+=============
+
 Flocker API
   A collection of RESTful API endpoints that allow you to configure a Flocker cluster programmatically with the tool and language of your choice.
 
 Flocker CLI
-  This is a tool for controlling Flocker directly via the command line. It interacts with the :term:`Flocker API`.
+  This is a tool for controlling Flocker directly via the command line. It interacts with the `Flocker API`.
 
 Flocker Container Agent
   An agent which manages the Docker containers on a node.
@@ -28,17 +38,20 @@ Flocker Container Agent
 Flocker Control Service
   This service stores the configuration and state of the cluster.
   The Flocker Control Service can be deployed on a dedicated node or on one of the cluster nodes.
-  The Flocker Control Service manages the :term:`Flocker ZFS Agent` and the :term:`Flocker Container Agent`, which in turn implement the changes to the configuration and state of the cluster.
+  The Flocker Control Service manages the `Flocker ZFS Agent` and the `Flocker Container Agent`, which in turn implement the changes to the configuration and state of the cluster.
   For more information, see :ref:`architecture`.
 
 The `flocker-cli` package
   An operating system package which will install the Flocker client on a computer which is running a Linux operating system or OS X.
 
 The `flocker-node` package
-  An operating system package which will install the :term:`Flocker ZFS Agent` and the :term:`Flocker Container Agent` on a node which is running a Linux operating system.
+  An operating system package which will install the `Flocker ZFS Agent` and the `Flocker Container Agent` on a node which is running a Linux operating system.
 
 Flocker ZFS Agent
   An agent which manages Flocker datasets on ZFS filesystems on a node.
+
+Other terms
+===========
 
 Container
    A Docker container - a virtual environment consisting of an application and its dependencies.
