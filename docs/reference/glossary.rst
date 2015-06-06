@@ -53,6 +53,8 @@ Flocker ZFS Agent
 Other terms
 ===========
 
+.. XXX Add a diagram to make this clearer. See FLOC-2076
+
 Container
    A Docker container - a virtual environment consisting of an application and its dependencies.
    It isolates processes on the host operating system and uses the host kernel.
