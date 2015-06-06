@@ -13,7 +13,7 @@ Product Features
 
 .. note:: All Flocker documentation will refer the `Production ready` product, unless tagged `Alpha` or `Beta`.
 
-Production ready
+Production Ready
    This product or feature is suitable for production use. You can expect API stability between versions, robust security, and product stability for all supported uses.
 
 Beta
@@ -41,10 +41,10 @@ Flocker Control Service
   The Flocker Control Service manages the `Flocker ZFS Agent` and the `Flocker Container Agent`, which in turn implement the changes to the configuration and state of the cluster.
   For more information, see :ref:`architecture`.
 
-The `flocker-cli` package
+The `flocker-cli` Package
   An operating system package which will install the Flocker client on a computer which is running a Linux operating system or OS X.
 
-The `flocker-node` package
+The `flocker-node` Package
   An operating system package which will install the `Flocker ZFS Agent` and the `Flocker Container Agent` on a node which is running a Linux operating system.
 
 Flocker ZFS Agent
