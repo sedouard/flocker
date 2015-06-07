@@ -32,9 +32,9 @@ To find out more about how Flocker manages migration of containers with volumes,
 If you have any feedback or problems, you can :ref:`talk-to-us`.
 
 .. contents:: 
-	:local:
-	:backlinks: none
-	:depth: 2
+   :local:
+   :backlinks: none
+   :depth: 2
 
 Before You Begin
 ================
@@ -115,19 +115,19 @@ Download the following :file:`.yml` files:
 
 The :file:`docker-compose.yml` file describes your distributed application (:file:`docker-compose.yml` was formerly known as :file:`fig.yml`):
 
-   .. literalinclude:: docker-compose.yml
-      :language: yaml
+.. literalinclude:: docker-compose.yml
+   :language: yaml
 
 The :file:`deployment-node1.yml` file describes which containers to deploy, and where:
 
-   .. literalinclude:: deployment-node1.yml
-      :language: yaml
+.. literalinclude:: deployment-node1.yml
+   :language: yaml
 
 Secondly, install the web application and server on the first host:
 
 .. prompt:: bash you@laptop:~$
 
-	flocker-deploy 172.16.255.250 deployment-node1.yml docker-compose.yml
+   flocker-deploy 172.16.255.250 deployment-node1.yml docker-compose.yml
 
 Visit http://172.16.255.250/.
 You will see the visit count displayed.
@@ -147,14 +147,14 @@ The diagram below illustrates your current server-side Flocker setup:
 
 To move the container with the Redis server along with its data volume, use the :file:`deployment-node2.yml` file:
 
-   .. literalinclude:: deployment-node2.yml
-      :language: yaml
+.. literalinclude:: deployment-node2.yml
+   :language: yaml
 
 Run the following:
 
 .. prompt:: bash you@laptop:~$
 
-	flocker-deploy 172.16.255.250 deployment-node2.yml docker-compose.yml
+   flocker-deploy 172.16.255.250 deployment-node2.yml docker-compose.yml
 
 The container on the Redis server and its volume have now both been moved to the second host.
 Flocker has maintained its link to the web application on the first host.
