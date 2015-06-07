@@ -99,6 +99,14 @@ One is a Python web application and the other is Redis server, which stores its 
 
 Download the following :file:`.yml` files:
 
+.. container:: hidden
+
+.. Create the files to be downloaded with curl, but don't show download links for them
+
+   :download:`docker-compose.yml`
+   :download:`deployment-node1.yml`
+   :download:`deployment-node2.yml`
+
 .. version-code-block:: console
 
    you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
