@@ -97,28 +97,16 @@ You will now have the client installed on your local machine, and two instances 
 Firstly, you will create two Docker containers on one of the hosts.
 One is a Python web application and the other is Redis server, which stores its data on a volume.
 
-Download the following :file:`.yml` files:
-
-.. container:: hidden
-
-.. Create the files to be downloaded with curl, but don't show download links for them
-
-   :download:`docker-compose.yml`
-   :download:`deployment-node1.yml`
-   :download:`deployment-node2.yml`
-
-.. version-code-block:: console
-
-   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
-   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
-   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
-
 The :file:`docker-compose.yml` file describes your distributed application (:file:`docker-compose.yml` was formerly known as :file:`fig.yml`):
+
+:download:`docker-compose.yml`
 
 .. literalinclude:: docker-compose.yml
    :language: yaml
 
 The :file:`deployment-node1.yml` file describes which containers to deploy, and where:
+
+:download:`deployment-node1.yml`
 
 .. literalinclude:: deployment-node1.yml
    :language: yaml
@@ -146,6 +134,8 @@ The diagram below illustrates your current server-side Flocker setup:
    :align: center
 
 To move the container with the Redis server along with its data volume, use the :file:`deployment-node2.yml` file:
+
+:download:`deployment-node2.yml`
 
 .. literalinclude:: deployment-node2.yml
    :language: yaml
