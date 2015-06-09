@@ -4,6 +4,11 @@ Tutorial: Moving a Data Volume
 
 .. note:: This tutorial takes roughly 30 minutes, but because there are a few things to download, times might vary depending on the speed of your connection.
 
+.. contents:: 
+   :local:
+   :backlinks: none
+   :depth: 2
+
 You will use Flocker to migrate a Docker container with its data volume from one host to another.
 The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts.
 
@@ -27,14 +32,7 @@ The following diagram illustrates how the server-side Flocker setup will be conf
 
 Flocker manages the data migration and the link between the two containers.
 
-To find out more about how Flocker manages migration of containers with volumes, see :ref:`data-volumes`.
-
 If you have any feedback or problems, you can :ref:`talk-to-us`.
-
-.. contents:: 
-   :local:
-   :backlinks: none
-   :depth: 2
 
 Before You Begin
 ================
@@ -67,6 +65,9 @@ Ubuntu 14.04
 .. task:: install_cli ubuntu-14.04
    :prompt: you@laptop:~$
 
+Test the Installation
+---------------------
+
 To test your installation, run the following to check that you have the Flocker client installed correctly:
 
 .. prompt:: bash you@laptop:~$
@@ -94,8 +95,8 @@ Deploying an Application on the First Host
 ==========================================
 
 You will now have the client installed on your local machine, and two instances of Flocker, each on a different host.
-Firstly, you will create two Docker containers on one of the hosts.
-One is a Python web application and the other is Redis server, which stores its data on a volume.
+The next step is to create two Docker containers on one of the hosts.
+One container has a Python web application and the other has a Redis server, which stores its data on a volume.
 
 The :file:`docker-compose.yml` file describes your distributed application (:file:`docker-compose.yml` was formerly known as :file:`fig.yml`):
 
@@ -111,17 +112,16 @@ The :file:`deployment-node1.yml` file describes which containers to deploy, and 
 .. literalinclude:: deployment-node1.yml
    :language: yaml
 
-Secondly, install the web application and server on the first host:
+Now you can use the Flocker CLI to deploy both your web application and server onto one of the virtual machines you have just created:
 
 .. prompt:: bash you@laptop:~$
 
    flocker-deploy 172.16.255.250 deployment-node1.yml docker-compose.yml
 
-Visit http://172.16.255.250/.
-You will see the visit count displayed.
-
-Visit http://172.16.255.251/.
-You will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
+* Visit http://172.16.255.250/.
+  You will see the visit count displayed.
+* Visit http://172.16.255.251/.
+  You will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
 
 Migrating a Container to the Second Host
 ========================================
@@ -140,25 +140,23 @@ To move the container with the Redis server along with its data volume, use the 
 .. literalinclude:: deployment-node2.yml
    :language: yaml
 
-Run the following:
+Now you can use the Flocker CLI to migrate one of the containers to the second host:
 
 .. prompt:: bash you@laptop:~$
 
    flocker-deploy 172.16.255.250 deployment-node2.yml docker-compose.yml
 
-The container on the Redis server and its volume have now both been moved to the second host.
-Flocker has maintained its link to the web application on the first host.
+The container on the Redis server and its volume have now both been moved to the second host, and Flocker has maintained its link to the web application on the first host:
 
-Visit http://172.16.255.250/.
-You will see the visit count is still persisted.
-
-Visit http://172.16.255.251/.
-You will see that the count still persists, even though the container with the volume has moved between hosts.
+* Visit http://172.16.255.250/.
+  You will see the visit count is still persisted.
+* Visit http://172.16.255.251/.
+  You will see that the count still persists, even though the container with the volume has moved between hosts.
 
 Result
 ======
 
-You have now set up your first Flocker cluster and moved a Docker container with its volume while persisting its link to a web app on another server.
+You have now set up your first Flocker cluster and moved a Docker container with its volume, while persisting its link to a web app on another server.
 
 The following diagram illustrates how your server-side Flocker setup looks now:
 
@@ -167,7 +165,8 @@ The following diagram illustrates how your server-side Flocker setup looks now:
    :alt: The web application is still running within a container on the first server, while the Redis server with a volume is now running on the second server.
    :align: center
 
-The next tutorial is :ref:`Deploying and Migrating MongoDB <tutmongo>`, which teaches you how to use Flocker's container, network, and volume orchestration functionality, based around the setup of a MongoDB service.
+The next Flocker tutorial is :ref:`Deploying and Migrating MongoDB <tutmongo>`, which will teach you how to use Flocker's container, network, and volume orchestration functionality, based around the setup of a MongoDB service.
+You will now already have some of the pre-requisites installed (for example, ``Vagrant`` and ``VirtualBox``), but its worth reading the :ref:`Requirements section<tutvagrant>` to check what else you'll need.
 
 .. _`Homebrew`: http://brew.sh/
 .. _`Vagrant`: https://docs.vagrantup.com/
