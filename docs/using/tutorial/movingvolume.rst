@@ -77,19 +77,35 @@ To test your installation, run the following to check that you have the Flocker 
 Installing Flocker on Local VMs
 ===============================
 
-Install two instances of Flocker, each on a separate host.
+In this step, you will install two instances of Flocker, each on a separate host.
 Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
-To install Flocker on the hosts, run the following command and Vagrant will create the environments you need:
 
-.. version-code-block:: console
+.. These downloads are also used in the mongo tuturial. You will need to adjust it if this download is changed.
 
-   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile && \
-   curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/cluster.crt && \
-   curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/user.crt && \
-   curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/user.key && \
-   vagrant up && \
-   [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent) && \
-   ssh-add ~/.vagrant.d/insecure_private_key
+#. Download the Vagrant configuration file:
+
+   :version-download:`Vagrantfile.template`
+
+   .. version-literalinclude:: Vagrantfile.template
+      :language: ruby
+      :lines: 1-8
+      :append: ...
+
+#. Download the cluster and user credentials:
+
+   :download:`cluster.crt`
+
+   :download:`user.crt`
+
+   :download:`user.key`
+
+#. Use ``vagrant up`` to start and provision the VMs:
+
+   .. prompt:: bash you@laptop:~$
+
+      vagrant up
+      [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent)
+      ssh-add ~/.vagrant.d/insecure_private_key
 
 Deploying an Application on the First Host
 ==========================================
