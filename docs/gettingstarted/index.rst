@@ -196,7 +196,7 @@ Getting started with Flocker
          you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
 
       docker-compose.yml
-      -------
+      ------------------
 
       .. literalinclude:: docker-compose.yml
          :language: yaml
