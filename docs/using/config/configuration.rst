@@ -169,7 +169,7 @@ Here's an example of a simple but complete configuration defining one applicatio
 .. _fig-compatible-config:
 
 Docker-compose Compatible Application Configuration
-----------------------------------------
+---------------------------------------------------
 
 As an alternative to Flocker's configuration syntax, you may also use `docker-compose`_'s configuration syntax to define applications.
 
