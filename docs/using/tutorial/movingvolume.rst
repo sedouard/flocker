@@ -65,10 +65,10 @@ Ubuntu 14.04
 .. task:: install_cli ubuntu-14.04
    :prompt: you@laptop:~$
 
-Test the Installation
----------------------
+Check the Version
+-----------------
 
-To test your installation, run the following to check that you have the Flocker client installed correctly:
+To check the version of Flocker you have installed, run the following:
 
 .. prompt:: bash you@laptop:~$
 
@@ -80,24 +80,14 @@ Installing Flocker on Local VMs
 In this step, you will install two instances of Flocker, each on a separate host.
 Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
 
-.. These downloads are also used in the mongo tuturial. You will need to adjust it if this download is changed.
+#. Download the Vagrant configuration file, and the cluster and user credentials:
 
-#. Download the Vagrant configuration file:
+   .. version-code-block:: console
 
-   :version-download:`Vagrantfile.template`
-
-   .. version-literalinclude:: Vagrantfile.template
-      :language: ruby
-      :lines: 1-8
-      :append: ...
-
-#. Download the cluster and user credentials:
-
-   :download:`cluster.crt`
-
-   :download:`user.crt`
-
-   :download:`user.key`
+      you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/Vagrantfile
+      you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/cluster.crt
+      you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/user.crt
+      you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/user.key
 
 #. Use ``vagrant up`` to start and provision the VMs:
 
@@ -114,16 +104,29 @@ You will now have the client installed on your local machine, and two instances 
 The next step is to create two Docker containers on one of the hosts.
 One container has a Python web application and the other has a Redis server, which stores its data on a volume.
 
-The :file:`docker-compose.yml` file describes your distributed application (:file:`docker-compose.yml` was formerly known as :file:`fig.yml`):
+Now you can try our simple tutorial: a Python web application and a Redis server. To begin with you'll need to download our sample yaml files:
 
-:download:`docker-compose.yml`
+.. container:: hidden
+
+.. Create the files to be downloaded with curl, but don't show download links for them
+
+   :download:`docker-compose.yml`
+   :download:`deployment-node1.yml`
+   :download:`deployment-node2.yml`
+
+.. version-code-block:: console
+
+   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/docker-compose.yml
+   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
+   you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
+
+
+The :file:`docker-compose.yml` file describes your distributed application (:file:`docker-compose.yml` was formerly known as :file:`fig.yml`):
 
 .. literalinclude:: docker-compose.yml
    :language: yaml
 
 The :file:`deployment-node1.yml` file describes which containers to deploy, and where:
-
-:download:`deployment-node1.yml`
 
 .. literalinclude:: deployment-node1.yml
    :language: yaml
@@ -150,8 +153,6 @@ The diagram below illustrates your current server-side Flocker setup:
    :align: center
 
 To move the container with the Redis server along with its data volume, use the :file:`deployment-node2.yml` file:
-
-:download:`deployment-node2.yml`
 
 .. literalinclude:: deployment-node2.yml
    :language: yaml
