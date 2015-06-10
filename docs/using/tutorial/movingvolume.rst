@@ -106,13 +106,13 @@ One container has a Python web application and the other has a Redis server, whi
 
 Now you can try our simple tutorial: a Python web application and a Redis server. To begin with you'll need to download our sample yaml files:
 
-   .. container:: hidden
+.. container:: hidden
 
-      .. Create the files to be downloaded with curl, but don't show download links for them.
+.. Create the files to be downloaded with curl, but don't show download links for them.
 
-     :download:`docker-compose.yml`
-     :download:`deployment-node1.yml`
-	 :download:`deployment-node2.yml`
+   :download:`docker-compose.yml`
+   :download:`deployment-node1.yml`
+   :download:`deployment-node2.yml`
 		 
 .. version-code-block:: console
 
