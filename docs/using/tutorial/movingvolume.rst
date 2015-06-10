@@ -108,7 +108,7 @@ Now you can try our simple tutorial: a Python web application and a Redis server
 
 .. container:: hidden
 
-.. Create the files to be downloaded with curl, but don't show download links for them.
+   .. Create the files to be downloaded with curl, but don't show download links for them.
 
    :download:`docker-compose.yml`
    :download:`deployment-node1.yml`
