@@ -102,7 +102,8 @@ You will now have the client installed on your local machine, and two instances 
 The next step is to create two Docker containers on one of the hosts.
 One container has a Python web application and the other has a Redis server, which stores its data on a volume.
 
-Now you can try our simple tutorial: a Python web application and a Redis server. To begin with you'll need to download our sample yaml files:
+Now you can try our simple tutorial: a Python web application and a Redis server.
+To begin with you'll need to download our sample ``YAML`` files:
 
 .. container:: hidden
 
