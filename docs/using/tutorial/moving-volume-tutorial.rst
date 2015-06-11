@@ -58,7 +58,7 @@ OS X
    :prompt: you@laptop:~$
 
 Ubuntu 14.04 and 15.04
----------------------
+----------------------
 
 .. task:: install_cli ubuntu-14.04
    :prompt: you@laptop:~$
