@@ -9,7 +9,7 @@ Tutorial: Moving a Data Volume
    :backlinks: none
    :depth: 2
 
-You will use Flocker to migrate a Docker container with its data volume from one host to another.
+You will use Flocker to migrate a Docker container with its data volume from one node to another.
 The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts.
 
 To begin the tutorial you will first install the Flocker client on your local machine, then install Flocker onto two hosts.
