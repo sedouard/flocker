@@ -40,7 +40,7 @@ Requirements
 
 To replicate the steps demonstrated in this tutorial, you will need:
 
-* Ubuntu 14.04 or OS X with `Homebrew`_ installed.
+* Ubuntu 14.04, Ubuntu 15.04 or OS X with `Homebrew`_ installed.
 * Two Virtual Machines (VMs) on your local machine.
   For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant`_ and `VirtualBox`_ installed.
 * At least 4GB RAM available.
@@ -57,11 +57,17 @@ OS X
 .. task:: test_homebrew flocker-|latest-installable|
    :prompt: you@laptop:~$
 
-Ubuntu 14.04
-------------
+Ubuntu 14.04 and 15.04
+---------------------
 
 .. task:: install_cli ubuntu-14.04
    :prompt: you@laptop:~$
+
+.. The 14.04 instructions are currently the same as the 15.04 instructions, so the task link below is commented out.
+   This ection will have to un-commented should the instructions for Ubuntu 15.04 ever deviate from the 14.04 instructions.
+
+   .. task:: install_cli ubuntu-15.04
+      :prompt: you@laptop:~$
 
 Check the Version
 -----------------
