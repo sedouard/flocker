@@ -107,7 +107,7 @@ To begin with you'll need to download our sample ``YAML`` files:
 
 .. container:: hidden
 
-   .. Create the files to be downloaded with curl, but don't show download links for them.
+   .. Create the files to be downloaded with ``cURL``, but don't show download links for them.
 
    :download:`docker-compose.yml`
    :download:`deployment-node1.yml`
