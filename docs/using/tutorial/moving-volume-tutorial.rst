@@ -180,7 +180,7 @@ The following diagram illustrates how your server-side Flocker setup looks now:
    :align: center
 
 The next Flocker tutorial is :ref:`Deploying and Migrating MongoDB <tutmongo>`, which will teach you how to use Flocker's container, network, and volume orchestration functionality, using MongoDB as an example.
-You will now already have some of the pre-requisites installed (for example, ``Vagrant`` and ``VirtualBox``), but its worth reading the :ref:`Requirements section<tutvagrant>` to check what else you'll need.
+You will now already have some of the pre-requisites installed (for example, ``Vagrant`` and ``VirtualBox``), but it's worth reading the :ref:`Requirements section<tutvagrant>` to check what else you'll need.
 
 .. _`Homebrew`: http://brew.sh/
 .. _`Vagrant`: https://docs.vagrantup.com/
