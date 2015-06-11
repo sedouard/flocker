@@ -120,7 +120,7 @@ To begin with you'll need to download our sample ``YAML`` files:
    you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
 
 
-The :file:`docker-compose.yml` file describes your distributed application (:file:`docker-compose.yml` was formerly known as :file:`fig.yml`):
+The :file:`docker-compose.yml` file describes your distributed application:
 
 .. literalinclude:: docker-compose.yml
    :language: yaml
