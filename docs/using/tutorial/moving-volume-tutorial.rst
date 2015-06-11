@@ -130,16 +130,16 @@ The :file:`deployment-node1.yml` file describes which containers to deploy, and 
 .. literalinclude:: deployment-node1.yml
    :language: yaml
 
-Now you can use the Flocker CLI to deploy both your web application and server onto one of the virtual machines you have just created:
+#. To deploy both your web application and server onto one of the virtual machines you have just created, use the Flocker CLI:
 
-.. prompt:: bash you@laptop:~$
+   .. prompt:: bash you@laptop:~$
 
-   flocker-deploy 172.16.255.250 deployment-node1.yml docker-compose.yml
+      flocker-deploy 172.16.255.250 deployment-node1.yml docker-compose.yml
 
-* Visit http://172.16.255.250/.
-  You will see the visit count displayed.
-* Visit http://172.16.255.251/.
-  You will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
+#. Visit http://172.16.255.250/.
+   You will see the visit count displayed.
+#. Visit http://172.16.255.251/.
+   You will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
 
 Migrating a Container to the Second Host
 ========================================
@@ -155,18 +155,17 @@ To move the container with the Redis server along with its data volume, use the 
 .. literalinclude:: deployment-node2.yml
    :language: yaml
 
-Now you can use the Flocker CLI to migrate one of the containers to the second host:
+#. To migrate one of the containers to the second host, we'll again use the Flocker CLI:
 
-.. prompt:: bash you@laptop:~$
+   .. prompt:: bash you@laptop:~$
 
-   flocker-deploy 172.16.255.250 deployment-node2.yml docker-compose.yml
+      flocker-deploy 172.16.255.250 deployment-node2.yml docker-compose.yml
 
-The container on the Redis server and its volume have now both been moved to the second host, and Flocker has maintained its link to the web application on the first host:
-
-* Visit http://172.16.255.250/.
-  You will see the visit count is still persisted.
-* Visit http://172.16.255.251/.
-  You will see that the count still persists, even though the container with the volume has moved between hosts.
+   The container on the Redis server and its volume have now both been moved to the second host, and Flocker has maintained its link to the web application on the first host:
+#. Visit http://172.16.255.250/.
+   You will see the visit count is still persisted.
+#. Visit http://172.16.255.251/.
+   You will see that the count still persists, even though the container with the volume has moved between hosts.
 
 Result
 ======
