@@ -119,6 +119,7 @@ To begin with you'll need to download our sample ``YAML`` files:
    you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node1.yml
    you@laptop:~$ curl -O https://docs.clusterhq.com/en/|latest-installable|/_downloads/deployment-node2.yml
 
+.. XXX The version-code-block presents a different style to prompts, so this document would benefit from FLOC 2141 (version-prompt)
 
 The :file:`docker-compose.yml` file describes your distributed application:
 
