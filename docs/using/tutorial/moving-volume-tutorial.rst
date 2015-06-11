@@ -49,7 +49,7 @@ Installing the Client
 =====================
 
 The Flocker client runs locally on your machine, and will control the two instances of Flocker located on the hosts.
-To install the Flocker client, run the following in your terminal:
+To install the Flocker client, run the following:
 
 OS X
 ----
@@ -57,26 +57,17 @@ OS X
 .. task:: test_homebrew flocker-|latest-installable|
    :prompt: you@laptop:~$
 
-Ubuntu 14.04 and 15.04
-----------------------
+Ubuntu 14.04
+------------
 
 .. task:: install_cli ubuntu-14.04
    :prompt: you@laptop:~$
 
-.. The 14.04 instructions are currently the same as the 15.04 instructions, so the task link below is commented out.
-   This section will have to be un-commented should the instructions for Ubuntu 15.04 ever deviate from the 14.04 instructions.
+Ubuntu 15.04
+------------
 
-   .. task:: install_cli ubuntu-15.04
-      :prompt: you@laptop:~$
-
-Check the Version
------------------
-
-To check the version of Flocker you have installed, run the following:
-
-.. prompt:: bash you@laptop:~$
-
-   flocker-deploy --version
+.. task:: install_cli ubuntu-15.04
+   :prompt: you@laptop:~$
 
 Installing Flocker on Local VMs
 ===============================
