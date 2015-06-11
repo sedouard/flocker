@@ -15,7 +15,7 @@ The container you move will be part of a two-container application, the other co
 To begin the tutorial you will first install the Flocker client on your local machine, then install Flocker onto two hosts.
 You will then be ready to use Flocker to migrate a Docker container with a volume attached from one host to the other.
 
-You will be controlling your Flocker cluster via the CLI you've installed locally.
+You will be controlling your Flocker cluster via the CLI that you will have installed locally.
 The following diagram illustrates the initial server-side Flocker setup that you will control via the CLI:
 
 .. image:: images/flocker-tutorial-initial-setup.svg
