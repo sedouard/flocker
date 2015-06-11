@@ -64,7 +64,7 @@ Ubuntu 14.04 and 15.04
    :prompt: you@laptop:~$
 
 .. The 14.04 instructions are currently the same as the 15.04 instructions, so the task link below is commented out.
-   This ection will have to un-commented should the instructions for Ubuntu 15.04 ever deviate from the 14.04 instructions.
+   This section will have to be un-commented should the instructions for Ubuntu 15.04 ever deviate from the 14.04 instructions.
 
    .. task:: install_cli ubuntu-15.04
       :prompt: you@laptop:~$
@@ -109,7 +109,7 @@ The next step is to create two Docker containers on one of the hosts.
 One container has a Python web application and the other has a Redis server, which stores its data on a volume.
 
 Now you can try our simple tutorial: a Python web application and a Redis server.
-To begin with you'll need to download our sample ``YAML`` files:
+Before you begin, you'll need to download our sample ``YAML`` files:
 
 .. container:: hidden
 
