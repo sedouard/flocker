@@ -163,7 +163,7 @@ To move the container with the Redis server along with its data volume, use the 
 #. Visit http://172.16.255.250/.
    You will see the visit count is still persisted.
 #. Visit http://172.16.255.251/.
-   You will see that the count still persists, even though the container with the volume has moved between hosts.
+   You will see that the count still persists, even though the container with the volume has moved between hosts, which would not have been possible without using Flocker.
 
 Result
 ======
