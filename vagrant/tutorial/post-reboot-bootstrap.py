@@ -47,7 +47,9 @@ else:
 # The Flocker packages don't explicitly depend on ZFS because it is only
 # required when using the ZFS storage driver.  That's exactly what this box
 # wants to do.
-check_call(['yum', 'install', '-y', 'zfs'])
+check_call(['yum', 'install',
+            '--enablerepo', 'clusterhq-testing',
+            '-y', 'flocker-zfs-0'])
 
 # If a version is specifed, install that version.
 # Otherwise install whatever yum decides.
