@@ -89,8 +89,6 @@ Flocker manages the links, ports, and volumes associated with Docker containers 
    .. prompt:: bash you@laptop:~$
 
       vagrant up
-      [ -e "${SSH_AUTH_SOCK}" ] || eval $(ssh-agent)
-      ssh-add ~/.vagrant.d/insecure_private_key
 
 Deploying an Application on the First Host
 ==========================================
@@ -128,16 +126,21 @@ The :file:`deployment-node1.yml` file describes which containers to deploy, and 
 .. literalinclude:: deployment-node1.yml
    :language: yaml
 
-#. To deploy both your web application and server onto one of the virtual machines you have just created, use the Flocker CLI:
+#. Use the Flocker CLI to deploy both your web application and server onto one of the virtual machines that you have just created:
 
    .. prompt:: bash you@laptop:~$
 
       flocker-deploy 172.16.255.250 deployment-node1.yml docker-compose.yml
 
-#. Visit http://172.16.255.250/.
-   You will see the visit count displayed.
-#. Visit http://172.16.255.251/.
-   You will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
+#. View both the containers running on node1:
+
+   .. prompt:: bash you@laptop:~$
+   
+      vagrant ssh node1 -c 'docker ps'
+
+.. note:: At this point, you can visit http://172.16.255.250/, where you will see the visit count displayed.
+         
+		 Visit http://172.16.255.251/, where you will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
 
 Migrating a Container to the Second Host
 ========================================
@@ -148,22 +151,26 @@ The diagram below illustrates your current server-side Flocker setup:
    :alt: In the server-side Flocker setup there are two servers, one of which has two Docker containers running; one container is a running a web application, the other has a Redis database with a volume.
    :align: center
 
-To move the container with the Redis server along with its data volume, use the :file:`deployment-node2.yml` file:
+Now we use the :file:`deployment-node2.yml` file to move the Redis container along with its data volume:
 
 .. literalinclude:: deployment-node2.yml
    :language: yaml
 
-#. To migrate one of the containers to the second host, we'll again use the Flocker CLI:
+#. Use the Flocker CLI to migrate one of the containers to the second host:
 
    .. prompt:: bash you@laptop:~$
 
       flocker-deploy 172.16.255.250 deployment-node2.yml docker-compose.yml
 
-   The container on the Redis server and its volume have now both been moved to the second host, and Flocker has maintained its link to the web application on the first host:
-#. Visit http://172.16.255.250/.
-   You will see the visit count is still persisted.
-#. Visit http://172.16.255.251/.
-   You will see that the count still persists, even though the container with the volume has moved between hosts, which would not have been possible without using Flocker.
+#. View the Redis container and its volume now running on node2:
+
+   .. prompt:: bash you@laptop:~$
+   
+      vagrant ssh node2 -c 'docker ps'
+
+.. note:: You can revisit http://172.16.255.250/, where you will see the visit count is still persisted.
+
+          Visit http://172.16.255.251/, and you will see that the count still persists, even though the container with the volume has moved between hosts, which would not have been possible without using Flocker.
 
 Result
 ======
