@@ -2,7 +2,7 @@
 
 Name:		flocker-zfs
 Version:	0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Metapackage installing known working version of ZFS.
 
 Group:		System Environment/Kernel
@@ -38,9 +38,12 @@ Conflicts:	zfs-test > %{zfs_version}
 %files
 
 %description
-This package ensures that a versions of ZFSOnLinux that has been validated
+This package ensures that a version of ZFSOnLinux that has been validated
 by ClusterHQ for use with flocker are installed.
 
 %changelog
+* Fri Jun 12 2015 Tom Prince <tom.prince@clusterhq.com> 0-2
+- Fix typo in description.
+
 * Thu Jun 11 2015 Richard Yao <richard.yao@clusterhq.com> 0-1
 - Initial package
