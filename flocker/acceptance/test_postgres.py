@@ -3,6 +3,7 @@
 """
 Tests for running and managing PostgreSQL with Flocker.
 """
+import traceback
 from unittest import skipUnless
 from uuid import uuid4
 
@@ -152,6 +153,7 @@ class PostgresTests(TestCase):
                 return connect(host=host, user=user, port=port,
                                database=database)
             except (InterfaceError, ProgrammingError):
+                traceback.print_exc()
                 return False
 
         d = loop_until(connect_to_postgres)
