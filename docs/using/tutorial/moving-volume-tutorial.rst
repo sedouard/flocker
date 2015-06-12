@@ -40,7 +40,7 @@ Requirements
 
 To replicate the steps demonstrated in this tutorial, you will need:
 
-* Ubuntu 14.04, Ubuntu 15.04 or OS X with `Homebrew`_ installed.
+* Ubuntu 14.04, Ubuntu 15.04 or OS X with `Homebrew`_ and `Xcode`_ installed.
 * Two Virtual Machines (VMs) on your local machine.
   For this tutorial, you are supplied with Vagrant images to create the tutorial environment on VMs using VirtualBox, so you must have `Vagrant`_ and `VirtualBox`_ installed.
 * At least 4GB RAM available.
@@ -180,5 +180,6 @@ The next Flocker tutorial is :ref:`Deploying and Migrating MongoDB <tutmongo>`, 
 You will now already have some of the pre-requisites installed (for example, ``Vagrant`` and ``VirtualBox``), but it's worth reading the :ref:`Requirements section<tutvagrant>` to check what else you'll need.
 
 .. _`Homebrew`: http://brew.sh/
+.. _`Xcode`: https://developer.apple.com/xcode/
 .. _`Vagrant`: https://docs.vagrantup.com/
 .. _`VirtualBox`: https://www.virtualbox.org/
