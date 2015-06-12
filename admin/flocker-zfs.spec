@@ -1,3 +1,5 @@
+# Build this with `rpmbuild -bb admin/flocker-zfs.spec` on the target distribution.
+
 Name:		flocker-zfs
 Version:	0
 Release:	1%{?dist}
