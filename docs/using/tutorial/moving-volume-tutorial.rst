@@ -10,10 +10,10 @@ Tutorial: Moving a Data Volume
    :depth: 2
 
 You will use Flocker to migrate a Docker container with its data volume from one node to another.
-The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different hosts.
+The container you move will be part of a two-container application, the other container will not move and the two will remain connected even when they are on different nodes.
 
-To begin the tutorial you will first install the Flocker client on your local machine, then install Flocker onto two hosts.
-You will then be ready to use Flocker to migrate a Docker container with a volume attached from one host to the other.
+To begin the tutorial you will first install the Flocker client on your local machine, then install Flocker onto two nodes.
+You will then be ready to use Flocker to migrate a Docker container with a volume attached from one node to the other.
 
 You will be controlling your Flocker cluster via the CLI that you will have installed locally.
 The following diagram illustrates the initial server-side Flocker setup that you will control via the CLI:
@@ -48,7 +48,7 @@ To replicate the steps demonstrated in this tutorial, you will need:
 Installing the Client
 =====================
 
-The Flocker client runs locally on your machine, and will control the two instances of Flocker located on the hosts.
+The Flocker client runs locally on your machine, and will control the two instances of Flocker located on the nodes.
 To install the Flocker client, run the following:
 
 OS X
@@ -72,7 +72,7 @@ Ubuntu 15.04
 Installing Flocker on Local VMs
 ===============================
 
-In this step, you will install two instances of Flocker, each on a separate host.
+In this step, you will install two instances of Flocker, each on a separate node.
 Flocker manages the links, ports, and volumes associated with Docker containers and can move them around after deployment.
 
 #. Download the Vagrant configuration file, and the cluster and user credentials:
@@ -90,11 +90,11 @@ Flocker manages the links, ports, and volumes associated with Docker containers 
 
       vagrant up
 
-Deploying an Application on the First Host
+Deploying an Application on the First Node
 ==========================================
 
-You will now have the client installed on your local machine, and two instances of Flocker, each on a different host.
-The next step is to create two Docker containers on one of the hosts.
+You will now have the client installed on your local machine, and two instances of Flocker, each on a different node.
+The next step is to create two Docker containers on one of the nodes.
 One container has a Python web application and the other has a Redis server, which stores its data on a volume.
 
 Now you can try our simple tutorial: a Python web application and a Redis server.
@@ -132,17 +132,17 @@ The :file:`deployment-node1.yml` file describes which containers to deploy, and 
 
       flocker-deploy 172.16.255.250 deployment-node1.yml docker-compose.yml
 
-#. View both the containers running on node1:
+#. View both the containers running on the first node:
 
    .. prompt:: bash you@laptop:~$
    
       vagrant ssh node1 -c 'docker ps'
 
-.. note:: At this point, you can visit http://172.16.255.250/, where you will see the visit count displayed.
-         
-		 Visit http://172.16.255.251/, where you will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
+#. Visit http://172.16.255.250/, where you will see the visit count displayed.
 
-Migrating a Container to the Second Host
+#. Visit http://172.16.255.251/, where you will see that the count persists because Flocker routes the traffic from either node named in the deployment file to the one that has the application.
+
+Migrating a Container to the Second Node
 ========================================
 
 The diagram below illustrates your current server-side Flocker setup:
@@ -156,21 +156,21 @@ Now we use the :file:`deployment-node2.yml` file to move the Redis container alo
 .. literalinclude:: deployment-node2.yml
    :language: yaml
 
-#. Use the Flocker CLI to migrate one of the containers to the second host:
+#. Use the Flocker CLI to migrate one of the containers to the second node:
 
    .. prompt:: bash you@laptop:~$
 
       flocker-deploy 172.16.255.250 deployment-node2.yml docker-compose.yml
 
-#. View the Redis container and its volume now running on node2:
+#. View the Redis container and its volume now running on the second node:
 
    .. prompt:: bash you@laptop:~$
    
       vagrant ssh node2 -c 'docker ps'
 
-.. note:: You can revisit http://172.16.255.250/, where you will see the visit count is still persisted.
+#. Revisit http://172.16.255.250/, where you will see the visit count is still persisted.
 
-          Visit http://172.16.255.251/, and you will see that the count still persists, even though the container with the volume has moved between hosts, which would not have been possible without using Flocker.
+#. Revisit http://172.16.255.251/, and you will see that the count still persists, even though the container with the volume has moved between nodes, which would not have been possible without using Flocker.
 
 Result
 ======
