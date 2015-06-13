@@ -39,7 +39,7 @@ Conflicts:	zfs-test > %{zfs_version}
 
 %description
 This package ensures that a version of ZFSOnLinux that has been validated
-by ClusterHQ for use with flocker are installed.
+by ClusterHQ for use with flocker is installed.
 
 %changelog
 * Fri Jun 12 2015 Tom Prince <tom.prince@clusterhq.com> 0-2
