@@ -37,6 +37,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   fails on the first boot, since it can't install the corresponding
   #   kernel-devel headers.
   config.vm.synced_folder ".", "/vagrant", disabled: true
+  # This stops the vagrant-vbguest plugin from compiling unnecessary guest
+  # additions.
+  config.vbguest.auto_update = false
 
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :box
