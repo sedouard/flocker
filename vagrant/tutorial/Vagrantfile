@@ -6,6 +6,14 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "clusterhq/fedora20-updated"
+  
+  # The following reduces the difference in network speed between the guest
+  # and the host. See https://github.com/mitchellh/vagrant/issues/1807.
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+  end
+
   # Configure base system
   config.vm.provision :shell, :path => "bootstrap.py", :privileged => true,
       :args => [
