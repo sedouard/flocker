@@ -278,29 +278,7 @@ Release
 
       admin/tag-release
 
-#. Install LastPass CLI:
-
-   .. prompt:: bash [vagrant@localhost]$
-
-      # TODO add dependencies to dev box
-      git clone git@github.com:lastpass/lastpass-cli.git
-      cd lastpass-cli
-      sudo make install
-
-#. Configure LastPass CLI:
-
-   .. prompt:: bash [vagrant@localhost]$
-
-      lpass login my.username@example.com
-
-#. Force a build on the tag:
-
-   This creates artifacts to be uploaded.
-
-   .. prompt:: bash [vagrant@localhost]$
-
-      # TODO 
-      admin/force-build
+#. TODO Put back instructions to force a build.
 
 #. Wait for the build to complete successfully.
 
