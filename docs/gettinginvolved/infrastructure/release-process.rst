@@ -53,10 +53,9 @@ Access
 
 - Access to Amazon `S3`_ with an `Access Key ID and Secret Access Key <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html>`_.
   It is possible that you will have an account but not the permissions to create an Access Key ID and Secret Access Key.
-
 - SSH access to ClusterHQ's GitHub repositories.
-
 - The ability to create issues in `the ClusterHQ JIRA <https://clusterhq.atlassian.net>`_.
+- Access to ClusterHQ's BuildBot password in LastPass.
 
 .. _preparing-for-a-release:
 
@@ -273,21 +272,39 @@ Release
 
 #. Tag the version being released:
 
+   .. TODO Create this script
+
    .. prompt:: bash [vagrant@localhost]$
 
-      cd flocker-${VERSION}
-      workon flocker-release-${VERSION}
-      git tag --annotate "${VERSION}" "release/flocker-${VERSION}" -m "Tag version ${VERSION}"
-      git push origin "${VERSION}"
+      admin/tag-release
 
-#. Go to the `BuildBot web status`_ and force a build on the tag.
+#. Install LastPass CLI:
 
-   Force a build on a tag by putting the tag name (e.g. ``0.2.0``) into the branch box (without any prefix).
+   .. prompt:: bash [vagrant@localhost]$
 
-   .. note:: We force a build on the tag as well as the branch because the packages built before pushing the tag won't have the right version.
-             Also, the package upload script currently expects the packages to be built from the tag, rather than the branch.
+      # TODO add dependencies to dev box
+      git clone git@github.com:lastpass/lastpass-cli.git
+      cd lastpass-cli
+      sudo make install
 
-   Wait for the build to complete successfully.
+#. Configure LastPass CLI:
+
+   .. prompt:: bash [vagrant@localhost]$
+
+      lpass login my.username@example.com
+
+#. Force a build on the tag:
+
+   This creates artifacts to be uploaded.
+
+   .. prompt:: bash [vagrant@localhost]$
+
+      # TODO 
+      admin/force-build
+
+#. Wait for the build to complete successfully.
+
+   The build results are available at :samp:`http://build.clusterhq.com/boxes-flocker?branch={VERSION}`.
 
 #. Publish artifacts and documentation:
 
