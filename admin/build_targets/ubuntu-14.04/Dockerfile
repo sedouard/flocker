@@ -14,6 +14,5 @@ RUN ["apt-get", "install", "--no-install-recommends", "-y", "git", "ruby-dev", "
 RUN ["gem", "install", "fpm"]
 COPY requirements.txt /tmp/
 RUN ["pip", "install", "-r", "/tmp/requirements.txt"]
->>>>>>> origin/master
 VOLUME /flocker
 ENTRYPOINT ["/flocker/admin/build-package-entrypoint", "--destination-path=/output"]
