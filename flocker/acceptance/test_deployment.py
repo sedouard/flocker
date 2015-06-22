@@ -14,12 +14,15 @@ from twisted.trial.unittest import TestCase
 
 from ..control.httpapi import container_configuration_response
 
-from .testtools import (assert_expected_deployment, flocker_deploy, get_nodes,
-                        MONGO_APPLICATION, MONGO_IMAGE, get_mongo_application,
-                        require_flocker_cli, require_mongo, create_application,
-                        create_attached_volume, require_cluster)
+from .testtools import (MONGO_APPLICATION, MONGO_IMAGE,
+                        get_mongo_application, require_flocker_cli,
+                        require_mongo, create_application,
+                        create_attached_volume, require_cluster,
+                        require_moving_backend)
 
-SIZE_100_MB = u"104857600"
+from ..testtools import (
+    REALISTIC_BLOCKDEVICE_SIZE,
+)
 
 
 def api_configuration_to_flocker_deploy_configuration(api_configuration):
@@ -51,6 +54,7 @@ class DeploymentTests(TestCase):
     http://doc-dev.clusterhq.com/gettingstarted/tutorial/
     moving-applications.html#starting-an-application
     """
+    @require_moving_backend
     @require_flocker_cli
     @require_cluster(num_nodes=2)
     def test_application_volume_quotas(self, cluster):
@@ -64,7 +68,7 @@ class DeploymentTests(TestCase):
         node to the next.
         """
         (node_1, node_1_uuid), (node_2, node_2_uuid) = [
-            (node.address, node.uuid) for node in cluster.nodes]
+            (node.reported_hostname, node.uuid) for node in cluster.nodes]
         mongo_dataset_id = unicode(uuid4())
 
         # A mongo db without a quota
@@ -73,7 +77,7 @@ class DeploymentTests(TestCase):
             volume=create_attached_volume(
                 dataset_id=mongo_dataset_id,
                 mountpoint=b'/data/db',
-                maximum_size=int(SIZE_100_MB),
+                maximum_size=REALISTIC_BLOCKDEVICE_SIZE,
                 metadata=pmap({"name": MONGO_APPLICATION}),
             )
         )
@@ -103,7 +107,7 @@ class DeploymentTests(TestCase):
         }
 
         conf = config_application_1[u'applications'][MONGO_APPLICATION]
-        conf['volume']['maximum_size'] = SIZE_100_MB
+        conf['volume']['maximum_size'] = str(REALISTIC_BLOCKDEVICE_SIZE)
 
         config_deployment_1 = {
             u"version": 1,
@@ -122,33 +126,32 @@ class DeploymentTests(TestCase):
         }
 
         # Do the first deployment
-        flocker_deploy(self, config_deployment_1, config_application_1)
+        cluster.flocker_deploy(self, config_deployment_1, config_application_1)
 
         # Wait for the agent on node1 to create a container with the expected
         # properties.
         waiting_for_container_1 = cluster.wait_for_container(
             expected_container_1)
 
-        def got_container_1(result):
-            cluster, actual_container = result
+        def got_container_1(actual_container):
             self.assertTrue(actual_container['running'])
             waiting_for_dataset = cluster.wait_for_dataset(
                 {
                     u"dataset_id": mongo_dataset_id,
                     u"metadata": None,
                     u"deleted": False,
-                    u"maximum_size": int(SIZE_100_MB),
+                    u"maximum_size": REALISTIC_BLOCKDEVICE_SIZE,
                     u"primary": node_1_uuid
                 }
             )
 
-            def got_dataset(result):
-                cluster, dataset = result
+            def got_dataset(dataset):
                 self.assertEqual(
                     (dataset[u"dataset_id"], dataset[u"maximum_size"]),
-                    (mongo_dataset_id, int(SIZE_100_MB))
+                    (mongo_dataset_id, REALISTIC_BLOCKDEVICE_SIZE)
                 )
-                flocker_deploy(self, config_deployment_2, config_application_1)
+                cluster.flocker_deploy(
+                    self, config_deployment_2, config_application_1)
                 return cluster.wait_for_container(expected_container_2)
             waiting_for_dataset.addCallback(got_dataset)
             return waiting_for_dataset
@@ -156,23 +159,21 @@ class DeploymentTests(TestCase):
         waiting_for_container_2 = waiting_for_container_1.addCallback(
             got_container_1)
 
-        def got_container_2(result):
-            cluster, actual_container = result
+        def got_container_2(actual_container):
             waiting_for_dataset = cluster.wait_for_dataset(
                 {
                     u"dataset_id": mongo_dataset_id,
                     u"metadata": None,
                     u"deleted": False,
-                    u"maximum_size": int(SIZE_100_MB),
+                    u"maximum_size": REALISTIC_BLOCKDEVICE_SIZE,
                     u"primary": node_2_uuid
                 }
             )
 
-            def got_dataset(result):
-                cluster, dataset = result
+            def got_dataset(dataset):
                 self.assertEqual(
                     (dataset[u"dataset_id"], dataset[u"maximum_size"]),
-                    (mongo_dataset_id, int(SIZE_100_MB))
+                    (mongo_dataset_id, REALISTIC_BLOCKDEVICE_SIZE)
                 )
             waiting_for_dataset.addCallback(got_dataset)
             self.assertTrue(actual_container['running'])
@@ -183,41 +184,34 @@ class DeploymentTests(TestCase):
 
     @require_flocker_cli
     @require_mongo
-    def test_deploy(self):
+    @require_cluster(1)
+    def test_deploy(self, cluster):
         """
         Deploying an application to one node and not another puts the
         application where expected. Where applicable, Docker has internal
         representations of the data given by the configuration files supplied
         to flocker-deploy.
         """
-        getting_nodes = get_nodes(self, num_nodes=1)
+        [node_1] = cluster.nodes
 
-        def deploy(node_ips):
-            [node_1] = node_ips
+        minimal_deployment = {
+            u"version": 1,
+            u"nodes": {
+                node_1.reported_hostname: [MONGO_APPLICATION],
+            },
+        }
 
-            minimal_deployment = {
-                u"version": 1,
-                u"nodes": {
-                    node_1: [MONGO_APPLICATION],
+        minimal_application = {
+            u"version": 1,
+            u"applications": {
+                MONGO_APPLICATION: {
+                    u"image": MONGO_IMAGE,
                 },
-            }
+            },
+        }
 
-            minimal_application = {
-                u"version": 1,
-                u"applications": {
-                    MONGO_APPLICATION: {
-                        u"image": MONGO_IMAGE,
-                    },
-                },
-            }
+        cluster.flocker_deploy(self, minimal_deployment, minimal_application)
 
-            flocker_deploy(self, minimal_deployment, minimal_application)
-
-            d = assert_expected_deployment(self, {
-                node_1: set([get_mongo_application()]),
-            })
-
-            return d
-
-        getting_nodes.addCallback(deploy)
-        return getting_nodes
+        return cluster.assert_expected_deployment(self, {
+            node_1.reported_hostname: set([get_mongo_application()]),
+        })

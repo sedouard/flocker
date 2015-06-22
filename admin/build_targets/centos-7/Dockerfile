@@ -8,13 +8,11 @@ MAINTAINER ClusterHQ <contact@clusterhq.com>
 RUN ["yum", "groupinstall", "--assumeyes", "Development Tools"]
 RUN ["yum", "install", "--assumeyes", "epel-release"]
 RUN ["yum", "install", "--assumeyes", "git", "ruby-devel", "python-devel", "libffi-devel", "openssl-devel", "python-pip", "rpmlint"]
-# Despite being a packaging tool, fpm isn't yet packaged for Fedora.
+# Despite being a packaging tool, fpm isn't yet packaged for CentOS.
 # See https://github.com/jordansissel/fpm/issues/611
 RUN ["gem", "install", "fpm"]
-
-# XXX This should use a requirements.txt file.
-# See https://clusterhq.atlassian.net/browse/FLOC-1919.
-RUN ["pip", "install", "Twisted==15.2.1", "characteristic==14.1.0", "pyOpenSSL==0.14", "pycrypto==2.6.1", "virtualenv==12.1.1", "effect==0.1a13" , "boto==2.30.0", "requests==2.4.3", "requests-file==1.0", "ipaddr==2.1.11", "eliot==0.6.0", "pyrsistent==0.9.2", "python-cinderclient==1.1.1", "python-novaclient==2.24.1", "python-keystoneclient-rackspace==0.1.3"]
+COPY requirements.txt /tmp/
+RUN ["pip", "install", "-r", "/tmp/requirements.txt"]
 VOLUME /flocker
 WORKDIR /
 ENTRYPOINT ["/flocker/admin/build-package-entrypoint", "--destination-path=/output"]
