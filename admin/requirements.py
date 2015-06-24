@@ -11,7 +11,13 @@ check_call([pip.path, 'install', TOPLEVEL.path])
 
 def get_installed_packages():
     reqs = check_output([pip.path, 'freeze']).splitlines()
-    return filter(lambda req: not req.startswith('Flocker=='), reqs)
+    return [
+        req for req in reqs
+        # We don't want to include flocker in requirements.txt
+        if not req.startswith('Flocker==')
+        # https://github.com/pypa/pip/issues/2926
+        and not req.startswith('-e ')
+    ]
 
 requirements = get_installed_packages()
 
@@ -21,8 +27,8 @@ TOPLEVEL.child('requirements.txt').setContent(
 
 check_call([pip.path, 'install', "Flocker[dev,release,doc]"])
 
-dev_requirements = [
-    req for req in get_installed_packages() if req not in req requirements
+dev_requirements = ["-rrequirements.txt"] + [
+    req for req in get_installed_packages() if req not in requirements
 ]
 
 TOPLEVEL.child('dev-requirements.txt').setContent(
