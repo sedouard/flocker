@@ -1,3 +1,5 @@
+# This is a hack.
+# https://clusterhq.atlassian.net/browse/FLOC-2528
 from subprocess import check_output, check_call
 from tempfile import mkdtemp
 from twisted.python.filepath import FilePath
