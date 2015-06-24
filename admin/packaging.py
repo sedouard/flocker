@@ -1173,6 +1173,9 @@ class BuildOptions(usage.Options):
         The Python package to install.
         """
         if package_uri is not None:
+            # https://clusterhq.atlassian.net/browse/FLOC-2527
+            # This only exists to support the transition on buildbot.
+            # Once this is merged to all branches, this can be removed.
             print "WARNING: build-package will no longer build from a URI."
             print "It only builds from a flocker checkout."
 
