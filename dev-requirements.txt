@@ -3,7 +3,6 @@ mccabe==0.2.1
 docutils==0.12
 Fabric==1.10.0
 Pygments==2.0.2
-tl.eggdeps==0.4
 ecdsa==0.13
 packaging==15.2
 Jinja2==2.7.3

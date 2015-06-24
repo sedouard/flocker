@@ -68,7 +68,6 @@ dev_requirements = [
 
     "wheel>=0.24.0",
     "gitpython>=1.0.0",
-    "tl.eggdeps>=0.4",
     "boto>=2.30.0",
 
     # These are for building docs.
